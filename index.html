@@ -7,6 +7,10 @@
       <link rel="stylesheet" href="style.css">
       <link rel="shortcut icon" href="icon.png" type="image/x-icon">
       <script src="script.js"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+            rel="stylesheet">
       <title>Victor Nwafor</title>
 </head>
 
@@ -14,7 +18,7 @@
       <header>
             <a href="index.html" class="head-name">Victor Nwafor</a>
             <nav class="nav">
-                  <svg class="svg" viewBox="0 0 40 40">
+                  <svg class="svg" viewBox="0 0 40 40" width="20" height="20">
                         <line x1="10" y1="30" x2="30" y2="30" />
                         <line x1="10" y1="20" x2="30" y2="20" />
                         <line x1="10" y1="10" x2="30" y2="10" />
@@ -22,32 +26,49 @@
                   <div class="dropdown">
                         <p><a href="#About">About</a></p>
                         <p><a href="#Projects">Projects</a></p>
+                        <p><a href="#Skills">Skills</a></p>
                         <p><a href="#Contact">Contact</a></p>
 
                   </div>
             </nav>
       </header>
       <main>
-            <section id="About">
-                  <article class="about-article">
-                        <p class="intro">Hi,<br>I'm <span style="font-size: larger;">Victor<span
-                                          style="color: #ff6f91;">.</span></span></p>
-                        <p>I'm a Web Developer,<br>I can help you create beautiful, responsive and accessible websites
+            <section class="about section" id="About">
+                  <article>
+                        <p>Hi, I'm <br><span style="font-size: xx-large;">Victor<span
+                                          style="color: aqua;">.</span></span><br><br>I'm a Web Developer,<br>I can help
+                              you create beautiful, responsive
+                              and accessible websites
                               and web apps.<br>I have curated my best projects for you to peruse through.<br>Do have a
                               look and contact me so I can bring your beautiful ideas to life!</p>
                   </article>
             </section>
-            <section id="Projects">
-                  <h2>Projects 👨‍💻</h2>
+            <section class="projects section" id="Projects">
+                  <h3>Projects</h3>
             </section>
-            <section id="Contact">
-                  <h2>Contact ✉️</h2>
-                  <form action="form.php" class="form" style="animation: slide 2s ease .3s;">
+            <section class="skills section" id="Skills">
+                  <h3>Skills</h3>
+                  <figure>
+                        <img src="/img/react.png" alt="React">
+                        <img src="/img/cpp.png" alt="C++">
+                        <img src="/img/py.png" alt="Python">
+                        <img src="/img/nodejs2.png" alt="Node.js">
+                        <img src="/img/angular.png" alt="Angular.js">
+                        <img src="/img/java.png" alt="Java">
+                        <img src="/img/" alt="JavaScript">
+                        <img src="/img/" alt="MongoDB">
+                        <img src="/img/" alt="Tailwind">
+                        <img src="/img/" alt="Vue">
+                  </figure>
+            </section>
+            <section class="contact section" id="Contact">
+                  <h3>Contact</h3>
+                  <form action="" class="form">
                         <fieldset class="contact-form">
-                              <legend>Form 📜</legend>
+                              <legend>Form</legend>
                               <hr class="hr">
                               <label for="name">Name:&nbsp</label>
-                              <input type="text" name="name" id="name" placeholder="John Doe"><br>
+                              <input type="text" name="name" id="name" placeholder="John"><br>
                               <label for="email">Email:&nbsp</label>
                               <input type="email" name="email" id="email" placeholder="example@email.com"><br>
                               <label for="message">Message:&nbsp</label>
@@ -58,19 +79,17 @@
             </section>
       </main>
       <footer>
-            <section class="part address">
-                  <address>
-                        <a href="mailto:vicikechukwu@iaac.space">vicikechukwu@iaac.space</a>
-                        <a href="tel:2349047921865">+234 904 792 1865</a>
-                        <p>&copy2024</p>
-            </section>
-            <section class="part sitemap">
-                  Sitemap
-            </section>
-            <section class="part socials">
-                  Socials
-            </section>
       </footer>
+
+      <script defer>
+            var element = document.createElement('p');
+            element.textContent = 'Hello World';
+            document.getElementsByClassName('form').appendChild('element');
+
+      </script>
+      <noscript>
+            Sorry...JavaScript is needed to go ahead.
+      </noscript>
 </body>
 
 </html>

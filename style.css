@@ -1,190 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 * {
-      font-family: Serif,'Google Sans' ;
-      
+      font-family: "Rubik", "Open Sans", sans-serif;
+      color: var(--clr1);
 }
-:root {
-      --main: #845ec2;
-      --mclr: #ffc75f;
-      --grey: #bbbbbb;
-      --nclr: #5582FF;
+
+* a {
+      text-decoration: none;
 }
+
 @keyframes slide {
-    0% {
-         transform: translateX(-205px);
-         opacity: 0%;  
-       }
-    100% {
-           transform: translateX(0); 
-           opacity: 100%; 
-         }       
+      0% {
+            transform: translateX(-205px);
+            opacity: 0%;
+      }
+
+      100% {
+            transform: translateX(0);
+            opacity: 100%;
+      }
 }
+
+:root {
+      --bgrclr: #303030;
+      --clr1: #f5f5f5;
+      --clr2: #4d4d4d;
+      --clr3: #808080;
+}
+
 body {
-      background: linear-gradient(#845ec2, #d65db1, #ff6f91);
-      background-repeat: no-repeat;
+      background-color: var(--bgrclr);
+      position: static;
 }
-h2 {
-      text-align: center;
+
+.svg line {
+      stroke: #f5f5f5;
+      stroke-width: 5px;
 }
+
 header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      
-      padding-bottom: 8px;
-      margin: 0 -8px;
+      background-color: var(--clr2);
+      padding: 8px 15px;
+      margin: -8px -5px 0 -8px;
+      position: fixed;
+      top: 8px;
+      width: 96.8vw;
+      z-index: 3;
+      border-bottom: 1px solid var(--clr1);
 }
-main {
-      animation: slide 2s ease;
-      margin-left: 10px;
-      margin-bottom: 10px;
+
+.nav {
+      position: relative;
 }
-footer {
+
+.dropdown {
+      display: none;
+      width: 8.5vw;
+      max-width: 200px;
+      border-radius: 10px;
+      background-color: #4d4d4d;
+      padding: 10px;
+      position: fixed;
+      left: -8vw;
+      z-index: 1;
+      border: 2px solid var(--clr1);
+}
+
+.dropdown>p>a:hover {
+      font-size: large;
+}
+
+.nav:hover .dropdown {
       display: flex;
+      flex-direction: column;
+      justify-content: space-around;
       align-items: center;
-      justify-content: space-between;
-      background-color: #000;
-      margin: -8px;
-      padding: 0;
-      text-align: center;
-      font-size: small;
-      color: var(--grey);
+      position: absolute;
 }
-footer a {
-      display: block;      
-      color: var(--grey);
+
+.about,
+.contact {
+      height: 50vh;
 }
-main {
-      color: var(--mclr);
+
+.about>article {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10%;
 }
-a {
-      text-decoration: none;
-      
+
+.about article {
+      border: 2px solid var(--clr1);
+      border-radius: 30px;
+      padding: 6.5vh;
+      background-color: var(--clr2);
+      font-size: larger;
+      animation: slide 2s ease .3s;
 }
-.dropdown a {
-      color: black;
+
+.skills {
+      height: 15vh;
+      margin-top: 40px;
 }
-.dropdown a:visited {
-      color: black;
+
+.projects {
+      height: 45vh;
 }
-.head-name a:visited {
-      color: var(--mclr);
+
+.skills>figure {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      animation: slide 2s ease .3s;
 }
-footer a:visited {
-      color: var(--grey);
+
+.skills>figure>img {
+      height: 5rem;
+      width: 5rem;
 }
-.head-name {
-      font-weight: bold;
-      margin-left: 10px;
-      color: var(--mclr);
-}
-nav {
-      margin-right: 10px;
-}
-footer section {
-      margin: 10px auto;
-}
+
 .contact-form {
       border: none;
       display: grid;
       max-width: 500px;
 }
+
 legend {
       text-align: center;
 }
+
 #message {
       max-height: 60px;
 }
+
 .form {
       display: flex;
       align-items: center;
       justify-content: center;
+      background-color: var(--clr2);
+      padding: 20px 5em;
+      width: 15vw;
+      height: 35vh;
+      margin: 0 auto;
+      border: 2px solid var(--clr1);
+      border-radius: 30px;
+      animation: slide 2s ease .3s;
 }
+
 .hr {
       width: 50px;
       margin-top: 0;
-      border: .5px solid #000;
+      border: .5px solid var(--clr1);
 }
-input,textarea {
+
+input,
+textarea {
       border: 1px solid #000;
       background-color: transparent;
       border-radius: 5px;
+      width: 200px;
+      line-height: 25px;
+      color: var(--clr1);
 }
+
+.contact-form>label {
+      font-size: small;
+}
+
 .sub-btn {
       width: 50%;
       margin: -5px auto;
       border-radius: 10px;
-      border: .5px solid #000;
-      background-color: var(--mclr);
+      border: 1px solid var(--clr1);
+      background-color: var(--clr3);
       padding: 3%;
       font-weight: bold;
       color: #000;
-      box-shadow: 1px 1px 5px ;
-}   
+      box-shadow: 1px 1px 5px;
+}
+
 .sub-btn:hover {
-      background-color: #f9f871;
+      background-color: var(--clr1);
       transition: all 100ms linear;
-}   
+}
+
 .sub-btn:active {
       background-color: gray;
       color: var(--mclr);
       transition: all 100ms linear;
 }
-.about-article {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: -15px auto 0 auto;
-}
-.about-article p:last-child {
-      animation: slide 2s ease .15s;
-      width: 80%;
+
+.section>h3 {
       text-align: center;
+      animation: slide 2s ease .5s;
 }
-.nav {
-      position: relative;
-      display: inline-block;
-}
-.dropdown {
-      display: none;
-      position: absolute;
-      z-index: 1;
-      border-radius: 5px;
-      padding: 5px 10px;
-      margin: 3px auto auto -50px;
-      background-color: var(--mclr);
-      max-width: 15vw;
-}
-.nav:hover .dropdown {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;            
-}
-.nav button {
-      background-color: transparent;
-      border: none;
-}
-.nav button img {
-      
-}
-.dropdown p {
-      list-style-type: none;
-      font-size: smaller;
-      text-align: center;
-      line-height: 2px;
-}
-.intro {
-      margin: 4rem auto 2px 20vw;
-      font-size: larger;
-      font-weight: bold;
-      animation: slide 2s ease .15s;
-}
-.svg {
-      width: 50px;
-      height: 30px;
-      margin: -10px;
-}
-.svg line {
-      stroke: var(--mclr);
-      stroke-width: 4px;
+
+footer {
+      height: 20vh;
+      background-color: var(--clr2);
+      border-top: 1px solid var(--clr1);
+      margin: 0 -8px -8px -8px;
 }
