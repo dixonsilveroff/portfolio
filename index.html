@@ -5,8 +5,8 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="mobile.css">
       <link rel="shortcut icon" href="icon.png" type="image/x-icon">
-      <script src="script.js"></script>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
@@ -18,25 +18,23 @@
       <header>
             <a href="index.html" class="head-name">Victor Nwafor</a>
             <nav class="nav">
-                  <svg class="svg" viewBox="0 0 40 40" width="20" height="20">
-                        <line x1="10" y1="30" x2="30" y2="30" />
-                        <line x1="10" y1="20" x2="30" y2="20" />
-                        <line x1="10" y1="10" x2="30" y2="10" />
-                  </svg>
                   <div class="dropdown">
                         <p><a href="#About">About</a></p>
                         <p><a href="#Projects">Projects</a></p>
                         <p><a href="#Skills">Skills</a></p>
                         <p><a href="#Contact">Contact</a></p>
-
                   </div>
+                  <svg class="svg" viewBox="0 0 40 40" width="20" height="20">
+                        <line x1="10" y1="30" x2="30" y2="30" />
+                        <line x1="10" y1="20" x2="30" y2="20" />
+                        <line x1="10" y1="10" x2="30" y2="10" />
+                  </svg>
             </nav>
       </header>
       <main>
             <section class="about section" id="About">
                   <article>
-                        <p>Hi, I'm <br><span style="font-size: xx-large;">Victor<span
-                                          style="color: aqua;">.</span></span><br><br>I'm a Web Developer,<br>I can help
+                        <p>Hi, I'm <br><span class="name">Victor<span style="color: aqua;">.</span></span><br><br>I'm a Web Developer,<br>I can help
                               you create beautiful, responsive
                               and accessible websites
                               and web apps.<br>I have curated my best projects for you to peruse through.<br>Do have a
@@ -55,10 +53,10 @@
                         <img src="/img/nodejs2.png" alt="Node.js">
                         <img src="/img/angular.png" alt="Angular.js">
                         <img src="/img/java.png" alt="Java">
-                        <img src="/img/" alt="JavaScript">
-                        <img src="/img/" alt="MongoDB">
-                        <img src="/img/" alt="Tailwind">
-                        <img src="/img/" alt="Vue">
+                        <img src="/img/js.png" alt="JavaScript">
+                        <img src="/img/mongodb.png" alt="MongoDB">
+                        <img src="/img/tailwind.png" alt="Tailwind">
+                        <img src="/img/vue.png" alt="Vue">
                   </figure>
             </section>
             <section class="contact section" id="Contact">
@@ -81,12 +79,8 @@
       <footer>
       </footer>
 
-      <script defer>
-            var element = document.createElement('p');
-            element.textContent = 'Hello World';
-            document.getElementsByClassName('form').appendChild('element');
 
-      </script>
+      <script src="script.js"></script>
       <noscript>
             Sorry...JavaScript is needed to go ahead.
       </noscript>
