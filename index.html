@@ -16,29 +16,37 @@
 </head>
 
 <body>
-      <header class="header">
-            <a href="./index.html" class="header-name"><strong>&#60;VickCodes&#62;</strong></a>
-            <nav class="header-nav">
-                  <button class="header-menu_open" onclick="toggleDropdown()"><img id="dropbtn"
-                              src="./src/images/ham-menu.svg" alt="hamburger menu button" width="25"></button>
+      <header class="header" role="banner">
+            <a href="./index.html" class="header-name" aria-label="Victor Nwafor - Home"><strong>&#60;VickCodes&#62;</strong></a>
+            <nav class="header-nav" role="navigation" aria-label="Main navigation">
+                  <button class="header-menu_open" 
+                          onclick="toggleDropdown()" 
+                          aria-expanded="false"
+                          aria-controls="myDropdown"
+                          aria-label="Toggle navigation menu">
+                        <span class="hamburger">
+                              <span class="line"></span>
+                              <span class="line"></span>
+                              <span class="line"></span>
+                        </span>
+                  </button>
             </nav>
       </header>
-      <ul class="header-dropdown" id="myDropdown">
-            <li><a href="#ContactMe">Contact Me</a></li>
-            <li><a href="#MyServices">My Services</a></li>
-            <li><a href="#AboutMe">About Me</a></li>
-            <li><a href="#MyWork">My Work</a></li>
-            <li><a href="./src/media/cv.pdf" class="header-cv_button" target="_blank">Download CV</a></li>
+      <ul class="header-dropdown" id="myDropdown" role="menu">
+            <li role="none"><a href="#ContactMe" role="menuitem">Contact Me</a></li>
+            <li role="none"><a href="#MyServices" role="menuitem">My Services</a></li>
+            <li role="none"><a href="#AboutMe" role="menuitem">About Me</a></li>
+            <li role="none"><a href="#MyWork" role="menuitem">My Work</a></li>
+            <li role="none"><a href="./src/media/cv.pdf" class="header-cv_button" role="menuitem" target="_blank" rel="noopener noreferrer">Download CV</a></li>
       </ul>
       <main class="main">
             <section class="intro section" id="intro">
                   <article class="hero-article">
-                        <div class="hero-text" role="article">
-                              <p class="intro-text">Hi, I'm</p>
-                              <p class="intro-text" style="font-size: 1.5rem;"><strong>Victor Nwafor</strong></p><br>
-                              <p class="intro-text" style="color: #D01414; font-size: 1.5rem;"><strong>FRONTEND
-                                          DEV</strong>
-                              </p>
+                        <div class="hero-text">
+                              <p class="intro-text greeting">Hi, I'm</p>
+                              <h1 class="intro-text name">Victor Nwafor</h1>
+                              <p class="intro-text typing-text" data-text="FRONTEND DEV"><strong>FRONTEND DEV</strong></p>
+                              <p class="tagline">Building exceptional digital experiences</p>
                         </div>
                         <figure>
                               <img  src="./src/images/victor1_small.webp" 
@@ -50,29 +58,29 @@
                         </figure>
                   </article>
             </section>
-            <section class=" services section" id="MyServices">
+            <section class="services section" id="MyServices">
                   <h2>WHAT I DO</h2>
                   <hr>
-                  <div class="service-article-container" role="article">
-                        <article class="services-article">
+                  <div class="service-article-container" role="list">
+                        <article class="services-article stagger-item" role="listitem">
+                              <div class="service-icon">💻</div>
                               <h3>Development</h3>
                               <p>I code and develop websites from the ground up using JavaScript Technologies,
-                                    such as React
-                                    and Node.</p>
+                                    such as React and Node.</p>
                         </article>
-                        <article class="services-article">
+                        <article class="services-article stagger-item" role="listitem">
+                              <div class="service-icon">🎨</div>
                               <h3>Web Building and CMS</h3>
-                              <p>I create websites using web builder and CMS technologies like Wix and WordPress.
-                              </p>
+                              <p>I create websites using web builder and CMS technologies like Wix and WordPress.</p>
                         </article>
-                        <article class="services-article">
+                        <article class="services-article stagger-item" role="listitem">
+                              <div class="service-icon">🔍</div>
                               <h3>Auditing and Fixing</h3>
                               <p>I analyze websites for Accessibility and Responsiveness down-scores and offer
-                                    fixes to them.
-                              </p>
+                                    fixes to them.</p>
                         </article>
                   </div>
-                  <a href="#MyWork" class="button-cta">see my work</a>
+                  <a href="#MyWork" class="button-cta">see my work ➜</a>
             </section>
             <section class="about-me section" id="AboutMe">
                   <h2>WHO I AM</h2>
@@ -103,48 +111,77 @@
                   <h2>My Work</h2>
                   <hr>
                   <h3>A curation of my best projects!</h3><br><br>
-                  <div class="my-work-article-wrapper" role="article">
-                        <article class="my-work_articles">
-                              <p><strong>SkillBridge</strong><br>A holistic app that servers as a companion for the
-                                    aspiring
-                                    21st century Techpreneur.<br><br><strong>Technologies:</strong>&nbsp;ReactJS,
-                                    NodeJS.</p>
-                              <a target="_blank" href="https://skillbridge-nine.vercel.app/"><img
-                                          src="./src/images/skillbridge.webp"
-                                          alt="SkillBridge Landing page webshot" loading="lazy"></a>
+                  <div class="my-work-article-wrapper" role="list">
+                        <article class="my-work_articles project-card" role="listitem">
+                              <div class="project-overlay">
+                                    <h3>SkillBridge</h3>
+                                    <p>A holistic app that serves as a companion for the aspiring
+                                    21st century Techpreneur.</p>
+                                    <div class="tech-stack">
+                                          <span class="tech-badge">ReactJS</span>
+                                          <span class="tech-badge">NodeJS</span>
+                                    </div>
+                              </div>
+                              <a target="_blank" href="https://skillbridge-nine.vercel.app/" rel="noopener noreferrer" aria-label="View SkillBridge project">
+                                    <img src="./src/images/skillbridge.webp"
+                                          alt="SkillBridge Landing page webshot" loading="lazy">
+                              </a>
                         </article>
-                        <article class="my-work_articles">
-                              <p><strong>SlickSneaks</strong><br>An ecommerce app exclusively for the Sneakers footwear.
-                                    <br><br>
-                                    <strong>Technologies:</strong>&nbsp;ReactJS, ExpressJS, NodeJS.
-                              </p>
-                              <a target="_blank" href="https://hng-task-two-tawny.vercel.app/"><img
-                                          src="./src/images/slicksneaks.webp"
-                                          alt="SlickSneaks Landing Page webshot" loading="lazy"></a>
+                        <article class="my-work_articles project-card" role="listitem">
+                              <div class="project-overlay">
+                                    <h3>SlickSneaks</h3>
+                                    <p>An ecommerce app exclusively for the Sneakers footwear.</p>
+                                    <div class="tech-stack">
+                                          <span class="tech-badge">ReactJS</span>
+                                          <span class="tech-badge">ExpressJS</span>
+                                          <span class="tech-badge">NodeJS</span>
+                                    </div>
+                              </div>
+                              <a target="_blank" href="https://hng-task-two-tawny.vercel.app/" rel="noopener noreferrer" aria-label="View SlickSneaks project">
+                                    <img src="./src/images/slicksneaks.webp"
+                                          alt="SlickSneaks Landing Page webshot" loading="lazy">
+                              </a>
                         </article>
-                        <article class="my-work_articles">
-                              <p><strong>ASCE Nigeria Website</strong><br>The Official homepage of ASCE Nigeria
-                                    International
-                                    Branch. <br><br><strong>Technologies:</strong>&nbsp;Wordpress, Elementor.</p>
-                              <a target="_blank" href="https://ascenigeria.org"><img src="./src/images/ascenigeria.webp"
-                                          alt="ASCE Nigeria homepage webshot" loading="lazy"></a>
+                        <article class="my-work_articles project-card" role="listitem">
+                              <div class="project-overlay">
+                                    <h3>ASCE Nigeria Website</h3>
+                                    <p>The Official homepage of ASCE Nigeria International Branch.</p>
+                                    <div class="tech-stack">
+                                          <span class="tech-badge">WordPress</span>
+                                          <span class="tech-badge">Elementor</span>
+                                    </div>
+                              </div>
+                              <a target="_blank" href="https://ascenigeria.org" rel="noopener noreferrer" aria-label="View ASCE Nigeria website">
+                                    <img src="./src/images/ascenigeria.webp"
+                                          alt="ASCE Nigeria homepage webshot" loading="lazy">
+                              </a>
                         </article>
                   </div>
-                  <a href="https://github.com/dixonsilveroff?tab=repositories" class="button-cta">more projects</a>
+                  <a href="https://github.com/dixonsilveroff?tab=repositories" class="button-cta" target="_blank" rel="noopener noreferrer">more projects ➜</a>
             </section>
       </main>
-      <footer class="footer" id="ContactMe">
-            <a href="mailto:dixonsilverofficial@gmail.com">dixonsilverofficial@gmail.com</a>
-            <div class="footer-social_icons">
-                  <a target="_blank" href="https://www.instagram.com/the.real_victor/"><img
-                              src="./src/images/instagram.svg" alt="Instagram Icon"></a>
-                  <a target="_blank" href="https://www.linkedin.com/in/therealvict0r/"><img
-                              src="./src/images/linkedin.svg" alt="Linkedin Icon"></a>
-                  <a target="_blank" href="https://github.com/dixonsilveroff"><img src="./src/images/github.svg"
-                              alt="Github Icon"></a>
-                  <a target="_blank" href="https://x.com/dixonsilveroff"><img src="./src/images/twitter.svg"
-                              alt="Twitter Icon"></a>
+      <footer class="footer" id="ContactMe" role="contentinfo">
+            <h2 class="footer-title">Let's Connect</h2>
+            <a href="mailto:dixonsilverofficial@gmail.com" class="footer-email" aria-label="Email Victor Nwafor">dixonsilverofficial@gmail.com</a>
+            <div class="footer-social_icons" role="navigation" aria-label="Social media links">
+                  <a target="_blank" href="https://www.instagram.com/the.real_victor/" rel="noopener noreferrer" aria-label="Visit Victor's Instagram profile">
+                        <img src="./src/images/instagram.svg" alt="" width="32" height="32">
+                        <span class="sr-only">Instagram</span>
+                  </a>
+                  <a target="_blank" href="https://www.linkedin.com/in/therealvict0r/" rel="noopener noreferrer" aria-label="Visit Victor's LinkedIn profile">
+                        <img src="./src/images/linkedin.svg" alt="" width="32" height="32">
+                        <span class="sr-only">LinkedIn</span>
+                  </a>
+                  <a target="_blank" href="https://github.com/dixonsilveroff" rel="noopener noreferrer" aria-label="Visit Victor's GitHub profile">
+                        <img src="./src/images/github.svg" alt="" width="32" height="32">
+                        <span class="sr-only">GitHub</span>
+                  </a>
+                  <a target="_blank" href="https://x.com/dixonsilveroff" rel="noopener noreferrer" aria-label="Visit Victor's Twitter profile">
+                        <img src="./src/images/twitter.svg" alt="" width="32" height="32">
+                        <span class="sr-only">Twitter</span>
+                  </a>
             </div>
+            <p class="footer-copyright">&copy; 2025 Victor Nwafor. All rights reserved.</p>
       </footer>
 
       <!-- To-Do 
