@@ -16,18 +16,42 @@ export default function Contact() {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    
-    // For now, just open email client with pre-filled data
-    const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`)
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)
-    window.location.href = `mailto:dixonsilverofficial@gmail.com?subject=${subject}&body=${body}`
-    
-    // Reset form
-    setFormData({ name: '', email: '', message: '' })
-    setStatus('success')
-    setTimeout(() => setStatus('idle'), 3000)
+    setStatus('sending')
+
+    try {
+      // Replace YOUR_FORMSPREE_ID with your actual Formspree form ID
+      // Get this from https://formspree.io after creating an account
+      const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/YOUR_FORMSPREE_ID'
+      
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `Portfolio Contact from ${formData.name}`
+        })
+      })
+
+      if (response.ok) {
+        setStatus('success')
+        setFormData({ name: '', email: '', message: '' })
+        // Reset to idle after 5 seconds
+        setTimeout(() => setStatus('idle'), 5000)
+      } else {
+        setStatus('error')
+        setTimeout(() => setStatus('idle'), 5000)
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 5000)
+    }
   }
 
   return (
@@ -89,14 +113,30 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="btn-primary w-full text-base py-4"
+              disabled={status === 'sending'}
+              className={`btn-primary w-full text-base py-4 ${
+                status === 'sending' ? 'opacity-75 cursor-not-allowed' : ''
+              }`}
             >
-              Send Message
+              {status === 'sending' ? 'Sending...' : 'Send Message'}
             </button>
 
             {status === 'success' && (
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-green-800 text-center">
-                Opening your email client...
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-green-800 text-center animate-fade-in">
+                <p className="font-medium">✓ Message sent successfully!</p>
+                <p className="text-sm mt-1">I'll get back to you as soon as possible.</p>
+              </div>
+            )}
+
+            {status === 'error' && (
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-800 text-center animate-fade-in">
+                <p className="font-medium">✗ Something went wrong</p>
+                <p className="text-sm mt-1">
+                  Please try again or email me directly at{' '}
+                  <a href="mailto:dixonsilverofficial@gmail.com" className="underline">
+                    dixonsilverofficial@gmail.com
+                  </a>
+                </p>
               </div>
             )}
           </form>
