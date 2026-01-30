@@ -13,15 +13,16 @@ export default function Leadership() {
       ]
     },
     {
-      title: 'Church Media Unit',
-      subtitle: 'Training & Orientation Lead',
-      description: 'Created training materials, orientation guides, and process documentation for new media team members. Focused on clarity, consistency, and skill development.',
+      title: 'Africa Waste Observatory',
+      subtitle: 'Project Manager - 400+ Students',
+      description: 'Led the development team of over 400 students to build a comprehensive web platform for waste management research across Africa. Coordinated across multiple disciplines, managed deliverables, and ensured successful project completion.',
       contributions: [
-        'Developed comprehensive onboarding system for new members',
-        'Documented workflows for media production and event coverage',
-        'Trained 20+ team members on tools and processes'
+        'Managed coordination and task delegation for 400+ student contributors',
+        'Established project workflows and communication systems at scale',
+        'Led frontend development while overseeing content collection from faculty',
+        'Successfully delivered platform used by 200+ students and researchers'
       ]
-    }
+    }  
   ]
 
   const philosophy = [
