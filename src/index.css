@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Custom Properties for additional theming */
+:root {
+  --transition-base: 200ms ease;
+}
+
+/* Base Styles */
+@layer base {
+  * {
+    @apply box-border;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply font-sans text-text-primary bg-secondary antialiased;
+  }
+  
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* Component Utilities */
+@layer components {
+  /* Button Styles */
+  .btn-primary {
+    @apply px-6 py-3 bg-accent text-white font-medium rounded-md 
+           hover:bg-accent-dark transition-all duration-base
+           focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-transparent text-text-primary font-medium rounded-md 
+           border-2 border-border hover:border-accent hover:text-accent
+           transition-all duration-base
+           focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
+  }
+  
+  /* Container */
+  .container-custom {
+    @apply w-full max-w-container mx-auto px-6 lg:px-8;
+  }
+  
+  .container-narrow {
+    @apply w-full max-w-narrow mx-auto px-6 lg:px-8;
+  }
+  
+  /* Section Spacing */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+  
+  /* Card Styles */
+  .card {
+    @apply bg-white border border-border rounded-lg p-6 
+           transition-all duration-base
+           hover:shadow-lg hover:border-accent/50;
+  }
+  
+  /* Typography */
+  .heading-xl {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight;
+  }
+  
+  .heading-lg {
+    @apply text-4xl md:text-5xl font-bold tracking-tight;
+  }
+  
+  .heading-md {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  }
+  
+  .heading-sm {
+    @apply text-2xl md:text-3xl font-semibold;
+  }
+  
+  .text-body {
+    @apply text-base md:text-lg text-text-secondary leading-relaxed;
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent;
+  }
+  
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-5 transition-all duration-700;
+  }
+  
+  .animate-on-scroll.visible {
+    @apply opacity-100 translate-y-0;
+  }
+}

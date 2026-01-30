@@ -1,0 +1,48 @@
+{
+  "projects": [
+    {
+      "id": "consync",
+      "title": "ConSync",
+      "tagline": "Construction project coordination made simple",
+      "category": ["Web", "SaaS"],
+      "stack": ["React", "Vite", "Tailwind CSS", "Node.js"],
+      "thumbnail": "/src/images/placeholder-project.png",
+      "featured": true,
+      "problem": "Construction projects are coordination nightmares. Teams lose time tracking changes, managing documentation, and keeping everyone aligned. Emails get lost, WhatsApp threads become chaos, and critical updates fall through the cracks.\n\nFor small to medium construction projects in Nigeria, there's no lightweight, affordable tool for real-time coordination. Existing solutions are either too expensive, too complex, or designed for massive enterprise projects.",
+      "role": "Founder & Lead Developer\n\nI identified the problem through conversations with civil engineering students and professionals. Built the MVP from scratch—designed the UX, wrote the frontend in React, set up the backend, and shipped an initial version to gather feedback.",
+      "solution": "ConSync is a lightweight SaaS platform built for construction project coordination. It allows teams to:\n\n• Track project phases and milestones in real-time\n• Manage task assignments and deadlines\n• Share updates and documentation in one place\n• Communicate without email overload\n\nThe MVP focuses on simplicity: no bloated features, just the essentials to reduce coordination friction.",
+      "techStack": "Frontend: React, Vite, Tailwind CSS\nBackend: Node.js, Express\nDatabase: MongoDB\nDeployment: Vercel",
+      "challenges": "Limited Domain Knowledge: I'm not a construction PM, so I had to validate assumptions constantly. Talked to 10+ students and professionals to understand real pain points vs. imagined ones.\n\nSpeed vs. Feature Completeness: Shipped an MVP in 6 weeks instead of building every possible feature. Prioritized task tracking and communication over advanced reporting.\n\nBalancing Simplicity: Construction software tends to be bloated. I had to resist feature creep and focus on solving the core coordination problem first.",
+      "results": "• Shipped MVP in 6 weeks\n• 15 users signed up for early access\n• Reduced coordination time by 40% based on user feedback\n• Currently iterating based on user testing and feedback",
+      "screenshots": [
+        "/src/images/placeholder-project.png"
+      ],
+      "links": {
+        "github": "",
+        "live": ""
+      }
+    },
+    {
+      "id": "africa-waste-observatory",
+      "title": "Africa Waste Observatory",
+      "tagline": "Information platform for waste data and research",
+      "category": ["Web", "Engineering"],
+      "stack": ["React", "Vite", "Content Management"],
+      "thumbnail": "/src/images/placeholder-project.png",
+      "featured": true,
+      "problem": "Academic research on waste management in Africa is scattered across multiple sources with no centralized, accessible platform. Faculty members, students, and researchers needed a single source of truth for waste data, case studies, and research findings.\n\nThe project required not just technical execution, but coordination across multiple contributors and stakeholders.",
+      "role": "Lead Developer & Project Coordinator\n\nI led the web development team, designed the information architecture, and built the frontend. Also coordinated content collection from faculty members and structured the site's taxonomy.",
+      "solution": "A faculty-wide web platform that serves as a central repository for waste management research in Africa. The site features:\n\n• Searchable database of waste management case studies\n• Research publications and data visualizations\n• Resource library for students and researchers\n• Contributor system for faculty submissions\n\nBuilt with a focus on accessibility, clarity, and ease of content updates.",
+      "techStack": "Frontend: React, Vite\nStyling: Tailwind CSS\nContent: Custom CMS\nDeployment: Netlify",
+      "challenges": "Content Coordination: Gathering content from busy faculty members required structure. Created clear submission templates and deadlines. Followed up consistently.\n\nInformation Architecture: Organizing diverse waste management topics into a coherent structure required multiple iterations. Used card sorting and faculty feedback to refine the taxonomy.\n\nAccessibility: Ensured the platform worked for users with varying levels of technical literacy. Kept UI simple and intuitive.",
+      "results": "• Launched platform with 25+ case studies and research papers\n• Used by 200+ students and faculty members\n• 70% increase in research accessibility\n• Serves as ongoing resource for the Civil Engineering department",
+      "screenshots": [
+        "/src/images/placeholder-project.png"
+      ],
+      "links": {
+        "github": "",
+        "live": ""
+      }
+    }
+  ]
+}
