@@ -4,10 +4,22 @@ export default function Leadership() {
   const leadershipRoles = [
     {
       title: 'Student Government',
-      subtitle: 'Senate President / General Secretary',
-      description: 'Led operations, documentation, and coordination across faculty-wide student government. Managed team communication, structured decision-making processes, and executed on initiatives that impacted hundreds of students.',
+      subtitle: 'Senate President',
+      description: 'Presided over the student senate, led faculty-wide initiatives, and served as the primary liaison between students and administration. Managed senate operations and drove strategic decision-making for student welfare and campus improvements.',
+      contributions: [
+        'Presided over senate meetings and legislative sessions',
+        'Represented student body in faculty and administrative meetings',
+        'Led strategic planning for student welfare initiatives',
+        'Coordinated budget allocation and resource distribution across student organizations'
+      ]
+    },
+    {
+      title: 'Student Government',
+      subtitle: 'General Secretary',
+      description: 'Managed administrative operations and documentation systems for the student government. Ensured accurate record-keeping, streamlined communication processes, and maintained institutional knowledge across leadership transitions.',
       contributions: [
         'Designed and implemented documentation systems for consistent record-keeping',
+        'Managed official correspondence and inter-departmental communication',
         'Coordinated cross-team initiatives and resource allocation',
         'Established clear communication channels and accountability frameworks'
       ]
