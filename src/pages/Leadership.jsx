@@ -65,7 +65,7 @@ export default function Leadership() {
         <div className="max-w-4xl mx-auto space-y-12">
           {leadershipRoles.map((role, index) => (
             <div key={index} className="card">
-              <h3 className="text-2xl font-semibold text-text-primary mb-2">
+              <h3 className="text-2xl font-semibold text-text-primary dark:text-white mb-2">
                 {role.title}
               </h3>
               <p className="text-accent font-medium mb-4">
@@ -75,7 +75,7 @@ export default function Leadership() {
                 {role.description}
               </p>
               <div>
-                <h4 className="text-sm font-semibold text-text-primary mb-3 uppercase tracking-wider">
+                <h4 className="text-sm font-semibold text-text-primary dark:text-white mb-3 uppercase tracking-wider">
                   Key Contributions
                 </h4>
                 <ul className="space-y-2">
@@ -84,7 +84,7 @@ export default function Leadership() {
                       <svg className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      <span className="text-sm text-text-secondary">{contribution}</span>
+                      <span className="text-sm text-text-secondary dark:text-gray-400">{contribution}</span>
                     </li>
                   ))}
                 </ul>
@@ -104,7 +104,7 @@ export default function Leadership() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {philosophy.map((item, index) => (
-              <div key={index} className="flex items-start gap-4 bg-white p-6 rounded-lg">
+              <div key={index} className="flex items-start gap-4 bg-white dark:bg-gray-800 p-6 rounded-lg">
                 <span className="text-3xl">{item.icon}</span>
                 <p className="text-body flex-1">{item.point}</p>
               </div>

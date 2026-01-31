@@ -35,8 +35,8 @@ export default function Writing() {
         subtitle="Essays on systems, execution, and engineering thinking."
       >
         <div className="max-w-3xl mx-auto">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-12 text-center">
-            <p className="text-blue-800 font-medium">
+          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-12 text-center">
+            <p className="text-blue-800 dark:text-blue-300 font-medium">
               📝 Essays coming soon. Topics include systems thinking, documentation, execution, and product development.
             </p>
           </div>
@@ -46,13 +46,13 @@ export default function Writing() {
               <div key={index} className="card">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-text-primary mb-2">
+                    <h3 className="text-xl font-semibold text-text-primary dark:text-white mb-2">
                       {essay.title}
                     </h3>
-                    <p className="text-sm text-text-secondary mb-2">
+                    <p className="text-sm text-text-secondary dark:text-gray-400 mb-2">
                       {essay.description}
                     </p>
-                    <span className="text-xs text-text-muted uppercase tracking-wider">
+                    <span className="text-xs text-text-muted dark:text-gray-500 uppercase tracking-wider">
                       {essay.date}
                     </span>
                   </div>

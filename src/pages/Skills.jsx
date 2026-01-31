@@ -37,7 +37,7 @@ export default function Skills() {
       >
         {/* Frontend */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold text-text-primary mb-6">
+          <h3 className="text-2xl font-semibold text-text-primary dark:text-white mb-6">
             Frontend Development
           </h3>
           <div className="flex flex-wrap gap-3">
@@ -49,7 +49,7 @@ export default function Skills() {
 
         {/* Backend */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold text-text-primary mb-6">
+          <h3 className="text-2xl font-semibold text-text-primary dark:text-white mb-6">
             Backend Development
           </h3>
           <div className="flex flex-wrap gap-3">
@@ -61,7 +61,7 @@ export default function Skills() {
 
         {/* Tools */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold text-text-primary mb-6">
+          <h3 className="text-2xl font-semibold text-text-primary dark:text-white mb-6">
             Tools & Platforms
           </h3>
           <div className="flex flex-wrap gap-3">
@@ -73,7 +73,7 @@ export default function Skills() {
 
         {/* Leadership */}
         <div>
-          <h3 className="text-2xl font-semibold text-text-primary mb-6">
+          <h3 className="text-2xl font-semibold text-text-primary dark:text-white mb-6">
             Engineering & Leadership
           </h3>
           <div className="flex flex-wrap gap-3">

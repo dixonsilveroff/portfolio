@@ -75,10 +75,10 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {values.map((value, index) => (
             <div key={index} className="card">
-              <h3 className="text-xl font-semibold text-text-primary mb-3">
+              <h3 className="text-xl font-semibold text-text-primary dark:text-white mb-3">
                 {value.title}
               </h3>
-              <p className="text-sm text-text-secondary leading-relaxed">
+              <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed">
                 {value.description}
               </p>
             </div>
