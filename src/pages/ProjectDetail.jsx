@@ -30,14 +30,14 @@ export default function ProjectDetail() {
 
           {/* Title */}
           <h1 className="heading-lg mb-4">{project.title}</h1>
-          <p className="text-xl text-text-secondary mb-6">{project.tagline}</p>
+          <p className="text-xl text-text-secondary dark:text-gray-400 mb-6">{project.tagline}</p>
 
           {/* Meta Info */}
           <div className="flex flex-wrap gap-2 mb-8">
             {project.stack.map((tech, index) => (
               <span 
                 key={index}
-                className="text-sm font-medium text-text-secondary bg-secondary-light px-4 py-2 rounded-full"
+                className="text-sm font-medium text-text-secondary dark:text-gray-300 bg-secondary-light dark:bg-gray-800 px-4 py-2 rounded-full"
               >
                 {tech}
               </span>

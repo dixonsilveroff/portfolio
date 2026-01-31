@@ -22,9 +22,9 @@ export default function Home() {
       <Section className="min-h-[90vh] flex items-center">
         <div className="text-center max-w-4xl mx-auto animate-fade-up">
           <h1 className="heading-xl mb-6">
-            Victor <span className="text-gradient">(Vick)</span>
+            Victor <span className="text-gradient">( Vick)</span>
           </h1>
-          <p className="text-2xl md:text-3xl font-semibold text-text-primary mb-6">
+          <p className="text-2xl md:text-3xl font-semibold text-text-primary dark:text-white mb-6">
             Builder. Developer. System Thinker.
           </p>
           <p className="text-body max-w-2xl mx-auto mb-10">

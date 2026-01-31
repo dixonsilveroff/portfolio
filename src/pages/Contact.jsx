@@ -64,7 +64,7 @@ export default function Contact() {
           {/* Contact Form */}
           <form onSubmit={handleSubmit} className="space-y-6 mb-12">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-2">
+              <label htmlFor="name" className="block text-sm font-medium text-text-primary dark:text-white mb-2">
                 Name
               </label>
               <input
@@ -74,13 +74,13 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+                className="w-full px-4 py-3 bg-white dark:bg-gray-800 text-text-primary dark:text-white border border-border dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
                 placeholder="Your name"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-text-primary mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-text-primary dark:text-white mb-2">
                 Email
               </label>
               <input
@@ -90,13 +90,13 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
-                placeholder="your.email@example.com"
+                className="w-full px-4 py-3 bg-white dark:bg-gray-800 text-text-primary dark:text-white border border-border dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+                placeholder="your@email.com"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-text-primary mb-2">
+              <label htmlFor="message" className="block text-sm font-medium text-text-primary dark:text-white mb-2">
                 Message
               </label>
               <textarea
@@ -106,9 +106,9 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 rows={6}
-                className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none"
-                placeholder="Tell me about your project or what you'd like to discuss..."
-              />
+                className="w-full px-4 py-3 bg-white dark:bg-gray-800 text-text-primary dark:text-white border border-border dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none"
+                placeholder="Tell me about your project..."
+             />
             </div>
 
             <button
@@ -122,14 +122,14 @@ export default function Contact() {
             </button>
 
             {status === 'success' && (
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-green-800 text-center animate-fade-in">
+              <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4 text-green-800 dark:text-green-300 text-center animate-fade-in">
                 <p className="font-medium">✓ Message sent successfully!</p>
                 <p className="text-sm mt-1">I'll get back to you as soon as possible.</p>
               </div>
             )}
 
             {status === 'error' && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-800 text-center animate-fade-in">
+              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 text-red-800 dark:text-red-300 text-center animate-fade-in">
                 <p className="font-medium">✗ Something went wrong</p>
                 <p className="text-sm mt-1">
                   Please try again or email me directly at{' '}
@@ -142,8 +142,8 @@ export default function Contact() {
           </form>
 
           {/* Direct Contact */}
-          <div className="text-center border-t border-border pt-12">
-            <h3 className="text-xl font-semibold text-text-primary mb-4">
+          <div className="text-center border-t border-border dark:border-gray-700 pt-12">
+            <h3 className="text-xl font-semibold text-text-primary dark:text-white mb-4">
               Or reach out directly
             </h3>
             <a 
@@ -159,7 +159,7 @@ export default function Contact() {
                 href="https://github.com/dixonsilveroff"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-secondary hover:text-accent transition-colors"
+                className="text-text-secondary dark:text-gray-400 hover:text-accent transition-colors"
                 aria-label="GitHub"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -170,7 +170,7 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/therealvict0r/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-secondary hover:text-accent transition-colors"
+                className="text-text-secondary dark:text-gray-400 hover:text-accent transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -181,7 +181,7 @@ export default function Contact() {
                 href="https://x.com/dixonsilveroff"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-secondary hover:text-accent transition-colors"
+                className="text-text-secondary dark:text-gray-400 hover:text-accent transition-colors"
                 aria-label="Twitter"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

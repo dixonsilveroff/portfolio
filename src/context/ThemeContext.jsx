@@ -22,8 +22,6 @@ export function ThemeProvider({ children }) {
     // Update document class and localStorage when theme changes
     const root = document.documentElement
     
-    console.log('Theme changed to:', theme)
-    
     if (theme === 'dark') {
       root.classList.add('dark')
     } else {
@@ -34,12 +32,7 @@ export function ThemeProvider({ children }) {
   }, [theme])
 
   const toggleTheme = () => {
-    console.log('Toggle theme clicked! Current theme:', theme)
-    setTheme(prev => {
-      const newTheme = prev === 'light' ? 'dark' : 'light'
-      console.log('Switching to:', newTheme)
-      return newTheme
-    })
+    setTheme(prev => prev === 'light' ? 'dark' : 'light')
   }
 
   return (
