@@ -37,7 +37,7 @@ export default function Header() {
           : 'bg-white'
       }`}
     >
-      <nav className="container-custom py-4 md:py-6">
+      <nav className="container-custom py-2 md:py-2">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link 
