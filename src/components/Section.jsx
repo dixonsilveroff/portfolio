@@ -7,8 +7,8 @@ export default function Section({
   background = 'default'
 }) {
   const bgClass = background === 'gray' 
-    ? 'bg-gray-50' 
-    : 'bg-white'
+    ? 'bg-gray-50 dark:bg-gray-900' 
+    : 'bg-white dark:bg-gray-950'
 
   return (
     <section 

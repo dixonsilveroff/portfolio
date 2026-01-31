@@ -18,7 +18,9 @@
   }
   
   body {
-    @apply font-sans text-text-primary bg-secondary antialiased;
+    @apply font-sans text-text-primary dark:text-gray-100 
+           bg-secondary dark:bg-gray-950 antialiased
+           transition-colors duration-200;
   }
   
   /* Reduced Motion Support */
@@ -42,15 +44,20 @@
   /* Button Styles */
   .btn-primary {
     @apply px-6 py-3 bg-accent text-white font-medium rounded-md 
-           hover:bg-accent-dark transition-all duration-base
-           focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
+           hover:bg-accent-dark dark:hover:bg-blue-600 
+           transition-all duration-base
+           focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2
+           dark:focus:ring-offset-gray-900;
   }
   
   .btn-secondary {
-    @apply px-6 py-3 bg-transparent text-text-primary font-medium rounded-md 
-           border-2 border-border hover:border-accent hover:text-accent
+    @apply px-6 py-3 bg-transparent 
+           text-text-primary dark:text-gray-200 font-medium rounded-md 
+           border-2 border-border dark:border-gray-700 
+           hover:border-accent hover:text-accent
            transition-all duration-base
-           focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
+           focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2
+           dark:focus:ring-offset-gray-900;
   }
   
   /* Container */
@@ -69,30 +76,35 @@
   
   /* Card Styles */
   .card {
-    @apply bg-white border border-border rounded-lg p-6 
+    @apply bg-white dark:bg-gray-800 
+           border border-border dark:border-gray-700 rounded-lg p-6 
            transition-all duration-base
-           hover:shadow-lg hover:border-accent/50;
+           hover:shadow-lg hover:border-accent/50 dark:hover:border-accent/50;
   }
   
   /* Typography */
   .heading-xl {
-    @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight;
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight
+           text-text-primary dark:text-white;
   }
   
   .heading-lg {
-    @apply text-4xl md:text-5xl font-bold tracking-tight;
+    @apply text-4xl md:text-5xl font-bold tracking-tight
+           text-text-primary dark:text-white;
   }
   
   .heading-md {
-    @apply text-3xl md:text-4xl font-bold tracking-tight;
+    @apply text-3xl md:text-4xl font-bold tracking-tight
+           text-text-primary dark:text-white;
   }
   
   .heading-sm {
-    @apply text-2xl md:text-3xl font-semibold;
+    @apply text-2xl md:text-3xl font-semibold
+           text-text-primary dark:text-white;
   }
   
   .text-body {
-    @apply text-base md:text-lg text-text-secondary leading-relaxed;
+    @apply text-base md:text-lg text-text-secondary dark:text-gray-300 leading-relaxed;
   }
 }
 
