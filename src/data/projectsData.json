@@ -6,7 +6,7 @@
       "tagline": "Construction project coordination made simple",
       "category": ["Web", "SaaS"],
       "stack": ["React", "Vite", "Tailwind CSS", "Node.js"],
-      "thumbnail": "/src/images/consync 2.webp",
+      "thumbnail": "/images/consync 2.webp",
       "featured": true,
       "problem": "Construction projects are coordination nightmares. Teams lose time tracking changes, managing documentation, and keeping everyone aligned. Emails get lost, WhatsApp threads become chaos, and critical updates fall through the cracks.\n\nFor small to medium construction projects in Nigeria, there's no lightweight, affordable tool for real-time coordination. Existing solutions are either too expensive, too complex, or designed for massive enterprise projects.",
       "role": "Founder & Lead Developer\n\nI identified the problem through conversations with civil engineering students and professionals. Built the MVP from scratch—designed the UX, wrote the frontend in React, set up the backend, and shipped an initial version to gather feedback.",
@@ -15,8 +15,8 @@
       "challenges": "Limited Domain Knowledge: I'm not a construction PM, so I had to validate assumptions constantly. Talked to 10+ students and professionals to understand real pain points vs. imagined ones.\n\nSpeed vs. Feature Completeness: Shipped an MVP in 6 weeks instead of building every possible feature. Prioritized task tracking and communication over advanced reporting.\n\nBalancing Simplicity: Construction software tends to be bloated. I had to resist feature creep and focus on solving the core coordination problem first.",
       "results": "• Shipped MVP in 6 weeks\n• 15 users signed up for early access\n• Reduced coordination time by 40% based on user feedback\n• Currently iterating based on user testing and feedback",
       "screenshots": [
-        "/src/images/consync.webp",
-        "/src/images/consync 2.webp"
+        "/images/consync.webp",
+        "/images/consync 2.webp"
       ],
       "links": {
         "github": "",
@@ -29,7 +29,7 @@
       "tagline": "Information platform for waste data and research",
       "category": ["Web", "Engineering"],
       "stack": ["React", "Vite", "Content Management"],
-      "thumbnail": "/src/images/awo.webp",
+      "thumbnail": "/images/awo.webp",
       "featured": true,
       "problem": "Academic research on waste management in Africa is scattered across multiple sources with no centralized, accessible platform. Faculty members, students, and researchers needed a single source of truth for waste data, case studies, and research findings.\n\nThe project required not just technical execution, but coordination across multiple contributors and stakeholders.",
       "role": "Lead Developer & Project Coordinator\n\nI led the web development team, designed the information architecture, and built the frontend. Also coordinated content collection from faculty members and structured the site's taxonomy.",
@@ -38,8 +38,8 @@
       "challenges": "Content Coordination: Gathering content from busy faculty members required structure. Created clear submission templates and deadlines. Followed up consistently.\n\nInformation Architecture: Organizing diverse waste management topics into a coherent structure required multiple iterations. Used card sorting and faculty feedback to refine the taxonomy.\n\nAccessibility: Ensured the platform worked for users with varying levels of technical literacy. Kept UI simple and intuitive.",
       "results": "• Launched platform with 25+ case studies and research papers\n• Used by 200+ students and faculty members\n• 70% increase in research accessibility\n• Serves as ongoing resource for the Civil Engineering department",
       "screenshots": [
-        "/src/images/awo 2.webp",
-        "/src/images/awo.webp"
+        "/images/awo 2.webp",
+        "/images/awo.webp"
       ],
       "links": {
         "github": "",
