@@ -5,20 +5,43 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <meta name="description" content="The personal page of Victor Nwafor, a frontend web developer.">
+      <meta name="description" content="Victor Nwafor — Builder. Developer. System Thinker.eloper crafting fast, accessible, and beautiful web experiences with React, Node.js, and modern JavaScript.">
+      <meta name="keywords" content="Builder. Developer. System Thinker.eloper, web developer, React, Node.js, JavaScript, Nigeria, portfolio">
+      <meta name="author" content="Victor Nwafor">
+
+      <!-- Open Graph -->
+      <meta property="og:title" content="Victor Nwafor — Builder. Developer. System Thinker.eloper">
+      <meta property="og:description" content="Crafting fast, accessible, and beautiful web experiences with modern JavaScript.">
+      <meta property="og:image" content="./icon.png">
+      <meta property="og:type" content="website">
+
+      <!-- Twitter Card -->
+      <meta name="twitter:card" content="summary">
+      <meta name="twitter:title" content="Victor Nwafor — Builder. Developer. System Thinker.eloper">
+      <meta name="twitter:description" content="Crafting fast, accessible, and beautiful web experiences with modern JavaScript.">
+      <meta name="twitter:image" content="./icon.png">
+
       <link rel="stylesheet" href="src/style.css">
       <link rel="shortcut icon" href="icon.png" type="image/x-icon">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
             rel="stylesheet">
-      <title>Victor the Dev</title>
+      <title>Victor Nwafor — Builder. Developer. System Thinker.</title>
 </head>
 
 <body>
       <header class="header" role="banner">
             <a href="./index.html" class="header-name" aria-label="Victor Nwafor - Home"><strong>&#60;VickCodes&#62;</strong></a>
             <nav class="header-nav" role="navigation" aria-label="Main navigation">
+                  <ul class="header-dropdown" id="myDropdown" role="menu">
+                        <li role="none"><a href="#MyServices" role="menuitem">Services</a></li>
+                        <li role="none"><a href="#MySkills" role="menuitem">Skills</a></li>
+                        <li role="none"><a href="#AboutMe" role="menuitem">About</a></li>
+                        <li role="none"><a href="#MyWork" role="menuitem">Work</a></li>
+                        <li role="none"><a href="#ContactMe" role="menuitem">Contact</a></li>
+                        <li role="none"><a href="./src/media/cv.pdf" class="header-cv_button" role="menuitem" target="_blank" rel="noopener noreferrer">Download CV</a></li>
+                  </ul>
                   <button class="header-menu_open" 
                           onclick="toggleDropdown()" 
                           aria-expanded="false"
@@ -32,25 +55,35 @@
                   </button>
             </nav>
       </header>
-      <ul class="header-dropdown" id="myDropdown" role="menu">
-            <li role="none"><a href="#ContactMe" role="menuitem">Contact Me</a></li>
-            <li role="none"><a href="#MyServices" role="menuitem">My Services</a></li>
-            <li role="none"><a href="#AboutMe" role="menuitem">About Me</a></li>
-            <li role="none"><a href="#MyWork" role="menuitem">My Work</a></li>
-            <li role="none"><a href="./src/media/cv.pdf" class="header-cv_button" role="menuitem" target="_blank" rel="noopener noreferrer">Download CV</a></li>
-      </ul>
+
       <main class="main">
+            <!-- ===== HERO ===== -->
             <section class="intro section" id="intro">
                   <article class="hero-article">
                         <div class="hero-text">
                               <p class="intro-text greeting">Hi, I'm</p>
                               <h1 class="intro-text name">Victor Nwafor</h1>
-                              <p class="intro-text typing-text" data-text="FRONTEND DEV"><strong>FRONTEND DEV</strong></p>
-                              <p class="tagline">Building exceptional digital experiences</p>
+                              <p class="intro-text typing-text" data-text="Builder.Dev.Thinker."><strong>Builder. Developer. System Thinker.</strong></p>
+                              <p class="tagline">I turn ideas into fast, accessible, and pixel-perfect web experiences that users love.</p>
+                              <div class="hero-cta-group">
+                                    <a href="#MyWork" class="button-cta button-cta--primary">View My Work</a>
+                                    <a href="#ContactMe" class="button-cta button-cta--outline">Get In Touch</a>
+                              </div>
+                              <div class="hero-socials">
+                                    <a href="https://github.com/dixonsilveroff" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                          <img src="./src/images/github.svg" alt="" width="22" height="22">
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/therealvict0r/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                          <img src="./src/images/linkedin.svg" alt="" width="22" height="22">
+                                    </a>
+                                    <a href="https://x.com/dixonsilveroff" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
+                                          <img src="./src/images/twitter.svg" alt="" width="22" height="22">
+                                    </a>
+                              </div>
                         </div>
                         <figure>
                               <img  src="./src/images/victor1_small.webp" 
-                                    alt="Victor with a broad smile in monotone."
+                                    alt="Victor Nwafor smiling in monotone."
                                     srcset="./src/images/victor1_small.webp 164w,
                                             ./src/images/victor1_medium.webp 378w"
                                     sizes="(min-width: 900px) 200px, 320px"
@@ -58,143 +91,301 @@
                         </figure>
                   </article>
             </section>
+
+            <!-- ===== SERVICES ===== -->
             <section class="services section" id="MyServices">
-                  <h2>WHAT I DO</h2>
+                  <h2>What I Do</h2>
                   <hr>
                   <div class="service-article-container" role="list">
                         <article class="services-article stagger-item" role="listitem">
-                              <div class="service-icon">💻</div>
-                              <h3>Development</h3>
-                              <p>I code and develop websites from the ground up using JavaScript Technologies,
-                                    such as React and Node.</p>
+                              <div class="service-icon">⚡</div>
+                              <h3>Builder. Developer. System Thinker.elopment</h3>
+                              <p>I build interactive, performant interfaces from the ground up using React, Next.js, and vanilla JavaScript.</p>
+                              <ul class="service-details">
+                                    <li>Single-page apps & progressive web apps</li>
+                                    <li>Component-driven architecture</li>
+                                    <li>API integration & state management</li>
+                              </ul>
                         </article>
                         <article class="services-article stagger-item" role="listitem">
                               <div class="service-icon">🎨</div>
-                              <h3>Web Building and CMS</h3>
-                              <p>I create websites using web builder and CMS technologies like Wix and WordPress.</p>
+                              <h3>UI/UX & Web Design</h3>
+                              <p>I translate designs into responsive, pixel-perfect code — or design from scratch using modern web design principles.</p>
+                              <ul class="service-details">
+                                    <li>Figma to code implementation</li>
+                                    <li>WordPress & CMS customization</li>
+                                    <li>Responsive layouts across all devices</li>
+                              </ul>
                         </article>
                         <article class="services-article stagger-item" role="listitem">
                               <div class="service-icon">🔍</div>
-                              <h3>Auditing and Fixing</h3>
-                              <p>I analyze websites for Accessibility and Responsiveness down-scores and offer
-                                    fixes to them.</p>
+                              <h3>Auditing & Optimization</h3>
+                              <p>I analyze existing websites for accessibility, performance, and SEO issues — then fix them.</p>
+                              <ul class="service-details">
+                                    <li>WCAG compliance audits</li>
+                                    <li>Core Web Vitals optimization</li>
+                                    <li>Cross-browser & device testing</li>
+                              </ul>
+                        </article>
+                        <article class="services-article stagger-item" role="listitem">
+                              <div class="service-icon">🚀</div>
+                              <h3>Performance & SEO</h3>
+                              <p>I ensure your site loads fast, ranks well, and delivers a smooth experience for every visitor.</p>
+                              <ul class="service-details">
+                                    <li>Lighthouse & PageSpeed audits</li>
+                                    <li>Lazy loading & code splitting</li>
+                                    <li>Structured data & meta optimization</li>
+                              </ul>
                         </article>
                   </div>
-                  <a href="#MyWork" class="button-cta">see my work ➜</a>
             </section>
-            <section class="about-me section" id="AboutMe">
-                  <h2>WHO I AM</h2>
+
+            <!-- ===== SKILLS ===== -->
+            <section class="skills section" id="MySkills">
+                  <h2>My Tech Stack</h2>
                   <hr>
-                  <div class="about-me-wrapper" role="article">
-                        <div class="about-me-head" role="article">
-                              <h3>Web Developer based in Abakaliki, Nigeria.</h3>
+                  <div class="skills-grid">
+                        <div class="skill-category glass-card stagger-item">
+                              <h3>Frontend</h3>
+                              <div class="skill-badges">
+                                    <span class="skill-badge" data-level="95">HTML5</span>
+                                    <span class="skill-badge" data-level="90">CSS3 / Sass</span>
+                                    <span class="skill-badge" data-level="90">JavaScript</span>
+                                    <span class="skill-badge" data-level="85">TypeScript</span>
+                                    <span class="skill-badge" data-level="85">React</span>
+                                    <span class="skill-badge" data-level="80">Next.js</span>
+                              </div>
+                        </div>
+                        <div class="skill-category glass-card stagger-item">
+                              <h3>Backend</h3>
+                              <div class="skill-badges">
+                                    <span class="skill-badge" data-level="80">Node.js</span>
+                                    <span class="skill-badge" data-level="75">Express</span>
+                                    <span class="skill-badge" data-level="70">PostgreSQL</span>
+                                    <span class="skill-badge" data-level="70">MongoDB</span>
+                                    <span class="skill-badge" data-level="65">Prisma</span>
+                              </div>
+                        </div>
+                        <div class="skill-category glass-card stagger-item">
+                              <h3>Tools & Workflow</h3>
+                              <div class="skill-badges">
+                                    <span class="skill-badge" data-level="90">Git / GitHub</span>
+                                    <span class="skill-badge" data-level="85">VS Code</span>
+                                    <span class="skill-badge" data-level="80">Figma</span>
+                                    <span class="skill-badge" data-level="75">Vercel</span>
+                                    <span class="skill-badge" data-level="70">Docker</span>
+                                    <span class="skill-badge" data-level="80">npm / Webpack</span>
+                              </div>
+                        </div>
+                  </div>
+            </section>
+
+            <!-- ===== ABOUT ME ===== -->
+            <section class="about-me section" id="AboutMe">
+                  <h2>Who I Am</h2>
+                  <hr>
+                  <div class="about-me-wrapper">
+                        <div class="about-me-head">
+                              <h3>A Builder. Developer. System Thinker.eloper based in Abakaliki, Nigeria — building for the world.</h3>
                               <figure>
                                     <img src="./src/images/victor2.webp" alt="Victor in a peace sign pose." width="230"
                                           class="hero-image2" loading="lazy">
                               </figure>
                         </div>
-                        <p class="about-me_text">So you&apos;re looking for that developer to build that <strong>highly
-                                    responsive</strong> and
-                              <strong class="bold">accessible</strong> site or app,
-                              then you're on the right page. <br><br>
-                              With my proven passion and comprehensive skill-set in the use of web technologies, I have
-                              been
-                              able to create the fastest, most responsive and highly accessible websites and web-apps to
-                              meet
-                              your business and/or personal needs. <br><br>
-                              Reach out to me, let's discuss bringing your project to life!
-                        </p>
+                        <div class="about-me-content">
+                              <p class="about-me_text">
+                                    I fell in love with web development the moment I realized code could turn an idea into something people actually use. Since then, I've been obsessed with crafting interfaces that are
+                                    <strong>blindingly fast</strong>, <strong>accessible to everyone</strong>, and genuinely enjoyable to interact with.
+                              </p>
+                              <p class="about-me_text">
+                                    My approach is straightforward: understand the problem, design a clean solution, and write code that's as easy to maintain as it is to use. Whether it's a startup landing page or a full-scale web application, I bring the same attention to detail and care.
+                              </p>
+                              <div class="about-stats">
+                                    <div class="stat-item glass-card">
+                                          <span class="stat-number" data-count="15">0</span><span class="stat-suffix">+</span>
+                                          <span class="stat-label">Projects Delivered</span>
+                                    </div>
+                                    <div class="stat-item glass-card">
+                                          <span class="stat-number" data-count="10">0</span><span class="stat-suffix">+</span>
+                                          <span class="stat-label">Happy Clients</span>
+                                    </div>
+                                    <div class="stat-item glass-card">
+                                          <span class="stat-number" data-count="3">0</span><span class="stat-suffix">+</span>
+                                          <span class="stat-label">Years Experience</span>
+                                    </div>
+                              </div>
+                              <a href="#ContactMe" class="button-cta">Let's work together</a>
+                        </div>
                   </div>
-                  <a href="#ContactMe" class="button-cta">contact me</a>
             </section>
+
+            <!-- ===== PROJECTS ===== -->
             <section class="my-work section" id="MyWork">
                   <h2>My Work</h2>
                   <hr>
-                  <h3>A curation of my best projects!</h3><br><br>
+                  <p class="section-subtitle">Selected projects I've built — each solving a real problem.</p>
                   <div class="my-work-article-wrapper" role="list">
                         <article class="my-work_articles project-card" role="listitem">
                               <div class="project-overlay">
+                                    <span class="project-role">Lead Developer</span>
                                     <h3>SkillBridge</h3>
-                                    <p>A holistic app that serves as a companion for the aspiring
-                                    21st century Techpreneur.</p>
+                                    <p>A companion platform for aspiring tech entrepreneurs. Built a responsive dashboard with curated learning paths, progress tracking, and community features — serving hundreds of users.</p>
                                     <div class="tech-stack">
-                                          <span class="tech-badge">ReactJS</span>
-                                          <span class="tech-badge">NodeJS</span>
+                                          <span class="tech-badge">React</span>
+                                          <span class="tech-badge">Node.js</span>
+                                          <span class="tech-badge">REST API</span>
+                                    </div>
+                                    <div class="project-links">
+                                          <a href="https://skillbridge-nine.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link project-link--live">Live Demo →</a>
+                                          <a href="https://github.com/dixonsilveroff" target="_blank" rel="noopener noreferrer" class="project-link project-link--source">Source Code</a>
                                     </div>
                               </div>
                               <a target="_blank" href="https://skillbridge-nine.vercel.app/" rel="noopener noreferrer" aria-label="View SkillBridge project">
                                     <img src="./src/images/skillbridge.webp"
-                                          alt="SkillBridge Landing page webshot" loading="lazy">
+                                          alt="SkillBridge dashboard landing page" loading="lazy">
                               </a>
                         </article>
+
                         <article class="my-work_articles project-card" role="listitem">
                               <div class="project-overlay">
+                                    <span class="project-role">Full-Stack Developer</span>
                                     <h3>SlickSneaks</h3>
-                                    <p>An ecommerce app exclusively for the Sneakers footwear.</p>
+                                    <p>An e-commerce storefront built exclusively for sneaker enthusiasts. Features product filtering, a cart system with persistent state, and a checkout flow powered by Express on the backend.</p>
                                     <div class="tech-stack">
-                                          <span class="tech-badge">ReactJS</span>
-                                          <span class="tech-badge">ExpressJS</span>
-                                          <span class="tech-badge">NodeJS</span>
+                                          <span class="tech-badge">React</span>
+                                          <span class="tech-badge">Express</span>
+                                          <span class="tech-badge">Node.js</span>
+                                    </div>
+                                    <div class="project-links">
+                                          <a href="https://hng-task-two-tawny.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link project-link--live">Live Demo →</a>
+                                          <a href="https://github.com/dixonsilveroff" target="_blank" rel="noopener noreferrer" class="project-link project-link--source">Source Code</a>
                                     </div>
                               </div>
                               <a target="_blank" href="https://hng-task-two-tawny.vercel.app/" rel="noopener noreferrer" aria-label="View SlickSneaks project">
                                     <img src="./src/images/slicksneaks.webp"
-                                          alt="SlickSneaks Landing Page webshot" loading="lazy">
+                                          alt="SlickSneaks e-commerce landing page" loading="lazy">
                               </a>
                         </article>
+
                         <article class="my-work_articles project-card" role="listitem">
                               <div class="project-overlay">
-                                    <h3>ASCE Nigeria Website</h3>
-                                    <p>The Official homepage of ASCE Nigeria International Branch.</p>
+                                    <span class="project-role">Web Designer</span>
+                                    <h3>ASCE Nigeria</h3>
+                                    <p>The official website for ASCE Nigeria International Branch. Designed and built a professional multi-page site with event listings, member resources, and an admin content management system.</p>
                                     <div class="tech-stack">
                                           <span class="tech-badge">WordPress</span>
                                           <span class="tech-badge">Elementor</span>
+                                          <span class="tech-badge">Custom CSS</span>
+                                    </div>
+                                    <div class="project-links">
+                                          <a href="https://ascenigeria.org" target="_blank" rel="noopener noreferrer" class="project-link project-link--live">Live Site →</a>
                                     </div>
                               </div>
                               <a target="_blank" href="https://ascenigeria.org" rel="noopener noreferrer" aria-label="View ASCE Nigeria website">
                                     <img src="./src/images/ascenigeria.webp"
-                                          alt="ASCE Nigeria homepage webshot" loading="lazy">
+                                          alt="ASCE Nigeria homepage" loading="lazy">
                               </a>
                         </article>
                   </div>
-                  <a href="https://github.com/dixonsilveroff?tab=repositories" class="button-cta" target="_blank" rel="noopener noreferrer">more projects ➜</a>
+                  <a href="https://github.com/dixonsilveroff?tab=repositories" class="button-cta" target="_blank" rel="noopener noreferrer">More on GitHub →</a>
+            </section>
+
+            <!-- ===== CONTACT FORM ===== -->
+            <section class="contact section" id="ContactMe">
+                  <h2>Get In Touch</h2>
+                  <hr>
+                  <p class="section-subtitle">Have a project in mind? Let's talk about it.</p>
+                  <div class="contact-wrapper">
+                        <form class="contact-form glass-card" id="contactForm" action="https://formspree.io/f/your-form-id" method="POST" novalidate>
+                              <div class="form-group">
+                                    <label for="contactName">Name</label>
+                                    <input type="text" id="contactName" name="name" placeholder="Your name" required autocomplete="name">
+                                    <span class="form-error" aria-live="polite"></span>
+                              </div>
+                              <div class="form-group">
+                                    <label for="contactEmail">Email</label>
+                                    <input type="email" id="contactEmail" name="email" placeholder="you@example.com" required autocomplete="email">
+                                    <span class="form-error" aria-live="polite"></span>
+                              </div>
+                              <div class="form-group">
+                                    <label for="contactMessage">Message</label>
+                                    <textarea id="contactMessage" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                                    <span class="form-error" aria-live="polite"></span>
+                              </div>
+                              <button type="submit" class="button-cta button-cta--primary" id="contactSubmit">
+                                    <span class="btn-text">Send Message</span>
+                                    <span class="btn-loading" aria-hidden="true">Sending...</span>
+                              </button>
+                        </form>
+                        <div class="contact-info">
+                              <div class="contact-info-item">
+                                    <span class="contact-info-icon">📧</span>
+                                    <div>
+                                          <h3>Email</h3>
+                                          <a href="mailto:dixonsilverofficial@gmail.com">dixonsilverofficial@gmail.com</a>
+                                    </div>
+                              </div>
+                              <div class="contact-info-item">
+                                    <span class="contact-info-icon">📍</span>
+                                    <div>
+                                          <h3>Location</h3>
+                                          <p>Abakaliki, Nigeria</p>
+                                    </div>
+                              </div>
+                              <div class="contact-info-item">
+                                    <span class="contact-info-icon">🟢</span>
+                                    <div>
+                                          <h3>Availability</h3>
+                                          <p>Open to freelance & full-time roles</p>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
             </section>
       </main>
-      <footer class="footer" id="ContactMe" role="contentinfo">
-            <h2 class="footer-title">Let's Connect</h2>
-            <a href="mailto:dixonsilverofficial@gmail.com" class="footer-email" aria-label="Email Victor Nwafor">dixonsilverofficial@gmail.com</a>
-            <div class="footer-social_icons" role="navigation" aria-label="Social media links">
-                  <a target="_blank" href="https://www.instagram.com/the.real_victor/" rel="noopener noreferrer" aria-label="Visit Victor's Instagram profile">
-                        <img src="./src/images/instagram.svg" alt="" width="32" height="32">
-                        <span class="sr-only">Instagram</span>
-                  </a>
-                  <a target="_blank" href="https://www.linkedin.com/in/therealvict0r/" rel="noopener noreferrer" aria-label="Visit Victor's LinkedIn profile">
-                        <img src="./src/images/linkedin.svg" alt="" width="32" height="32">
-                        <span class="sr-only">LinkedIn</span>
-                  </a>
-                  <a target="_blank" href="https://github.com/dixonsilveroff" rel="noopener noreferrer" aria-label="Visit Victor's GitHub profile">
-                        <img src="./src/images/github.svg" alt="" width="32" height="32">
-                        <span class="sr-only">GitHub</span>
-                  </a>
-                  <a target="_blank" href="https://x.com/dixonsilveroff" rel="noopener noreferrer" aria-label="Visit Victor's Twitter profile">
-                        <img src="./src/images/twitter.svg" alt="" width="32" height="32">
-                        <span class="sr-only">Twitter</span>
-                  </a>
-            </div>
-            <p class="footer-copyright">&copy; 2025 Victor Nwafor. All rights reserved.</p>
-      </footer>
 
-      <!-- To-Do 
-            - Enable scroll-driven animation for link navigation
-            - add progress bar
-            - Perform Accessibility and Performance audits.
-            - make navbar sticky when scrolling.
-            - Animate the open and close navbar button.
-      -->
+      <footer class="footer" role="contentinfo">
+            <div class="footer-top">
+                  <div class="footer-brand">
+                        <a href="#intro" class="footer-logo">&#60;VickCodes&#62;</a>
+                        <p class="footer-tagline">Crafting the web, one pixel at a time.</p>
+                  </div>
+                  <nav class="footer-links" aria-label="Footer navigation">
+                        <h3>Quick Links</h3>
+                        <ul>
+                              <li><a href="#MyServices">Services</a></li>
+                              <li><a href="#MySkills">Skills</a></li>
+                              <li><a href="#AboutMe">About</a></li>
+                              <li><a href="#MyWork">Work</a></li>
+                              <li><a href="#ContactMe">Contact</a></li>
+                        </ul>
+                  </nav>
+                  <div class="footer-connect">
+                        <h3>Connect</h3>
+                        <div class="footer-social_icons" role="navigation" aria-label="Social media links">
+                              <a target="_blank" href="https://www.instagram.com/the.real_victor/" rel="noopener noreferrer" aria-label="Instagram">
+                                    <img src="./src/images/instagram.svg" alt="" width="24" height="24">
+                              </a>
+                              <a target="_blank" href="https://www.linkedin.com/in/therealvict0r/" rel="noopener noreferrer" aria-label="LinkedIn">
+                                    <img src="./src/images/linkedin.svg" alt="" width="24" height="24">
+                              </a>
+                              <a target="_blank" href="https://github.com/dixonsilveroff" rel="noopener noreferrer" aria-label="GitHub">
+                                    <img src="./src/images/github.svg" alt="" width="24" height="24">
+                              </a>
+                              <a target="_blank" href="https://x.com/dixonsilveroff" rel="noopener noreferrer" aria-label="Twitter / X">
+                                    <img src="./src/images/twitter.svg" alt="" width="24" height="24">
+                              </a>
+                        </div>
+                  </div>
+            </div>
+            <div class="footer-bottom">
+                  <p class="footer-copyright">&copy; 2026 Victor Nwafor. All rights reserved.</p>
+            </div>
+      </footer>
 
       <script defer src="./src/script.js"></script>
       <noscript>
-            Sorry...JavaScript is needed to go ahead.
+            <p>JavaScript is required for the full experience.</p>
       </noscript>
 </body>
 

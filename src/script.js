@@ -27,12 +27,11 @@ function toggleDropdown() {
   dropdown.style.display = isMenuOpen ? 'flex' : 'none';
   menuBtn.classList.toggle('active', isMenuOpen);
   menuBtn.setAttribute('aria-expanded', isMenuOpen);
-  
-  // Animate menu items
+
   if (isMenuOpen) {
     const menuItems = dropdown.querySelectorAll('li');
     menuItems.forEach((item, index) => {
-      item.style.animation = `slideInRight 0.3s ease forwards ${index * 0.1}s`;
+      item.style.animation = `slideInRight 0.3s ease forwards ${index * 0.05}s`;
     });
   }
 }
@@ -44,12 +43,40 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Close menu when clicking on a link
+// Close menu on link click
 dropdown.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     if (isMenuOpen) toggleDropdown();
   });
 });
+
+// ============================
+// Active Nav Highlighting
+// ============================
+
+const navLinks = dropdown.querySelectorAll('a[href^="#"]');
+const sections = document.querySelectorAll('.section[id]');
+
+const activateNavLink = () => {
+  const scrollY = window.pageYOffset;
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute('id');
+
+    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+      navLinks.forEach(link => {
+        link.classList.remove('active-link');
+        if (link.getAttribute('href') === `#${sectionId}`) {
+          link.classList.add('active-link');
+        }
+      });
+    }
+  });
+};
+
+window.addEventListener('scroll', debounce(activateNavLink, 50));
 
 // ============================
 // Smooth Scrolling
@@ -94,10 +121,10 @@ let lastScrollTop = 0;
 
 const handleScroll = () => {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
+
   if (scrollTop > 100) {
     header.classList.add('sticky');
-    if (scrollTop > lastScrollTop) {
+    if (scrollTop > lastScrollTop && scrollTop > 300) {
       header.style.transform = 'translateY(-100%)';
     } else {
       header.style.transform = 'translateY(0)';
@@ -106,7 +133,7 @@ const handleScroll = () => {
     header.classList.remove('sticky');
     header.style.transform = 'translateY(0)';
   }
-  
+
   lastScrollTop = scrollTop;
 };
 
@@ -121,7 +148,7 @@ if (typingText) {
   const text = typingText.getAttribute('data-text') || 'FRONTEND DEV';
   typingText.textContent = '';
   let i = 0;
-  
+
   const typeWriter = () => {
     if (i < text.length) {
       typingText.textContent += text.charAt(i);
@@ -129,7 +156,7 @@ if (typingText) {
       setTimeout(typeWriter, 100);
     }
   };
-  
+
   setTimeout(typeWriter, 500);
 }
 
@@ -146,7 +173,6 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('animate-in');
-      // Stagger animation for child elements
       const children = entry.target.querySelectorAll('.stagger-item');
       children.forEach((child, index) => {
         setTimeout(() => {
@@ -157,11 +183,49 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Observe all sections and articles
-document.querySelectorAll('.section, .services-article, .my-work_articles').forEach(el => {
+document.querySelectorAll('.section, .services-article, .my-work_articles, .skill-category').forEach(el => {
   el.classList.add('observe-animation');
   observer.observe(el);
 });
+
+// ============================
+// Stat Counter Animation
+// ============================
+
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counters = entry.target.querySelectorAll('.stat-number');
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-count'), 10);
+        const duration = 1500;
+        const startTime = performance.now();
+
+        const animate = (currentTime) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease out cubic
+          const eased = 1 - Math.pow(1 - progress, 3);
+          counter.textContent = Math.floor(eased * target);
+
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            counter.textContent = target;
+          }
+        };
+
+        requestAnimationFrame(animate);
+      });
+      statObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+const statsSection = document.querySelector('.about-stats');
+if (statsSection) {
+  statObserver.observe(statsSection);
+}
 
 // ============================
 // Dark Mode Toggle
@@ -192,12 +256,12 @@ darkModeToggle.addEventListener('click', () => {
 // Parallax Effect
 // ============================
 
-const parallaxElements = document.querySelectorAll('.hero-image, .hero-image2');
+const parallaxElements = document.querySelectorAll('.hero-image');
 
 const handleParallax = () => {
   const scrolled = window.pageYOffset;
   parallaxElements.forEach(el => {
-    const speed = el.dataset.speed || 0.5;
+    const speed = 0.3;
     el.style.transform = `translateY(${scrolled * speed}px)`;
   });
 };
@@ -209,17 +273,11 @@ window.addEventListener('scroll', debounce(handleParallax, 10));
 // ============================
 
 if ('loading' in HTMLImageElement.prototype) {
-  const images = document.querySelectorAll('img[loading="lazy"]');
-  images.forEach(img => {
+  document.querySelectorAll('img[loading="lazy"]').forEach(img => {
     img.addEventListener('load', () => {
       img.classList.add('loaded');
     });
   });
-} else {
-  // Fallback for browsers that don't support lazy loading
-  const script = document.createElement('script');
-  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-  document.body.appendChild(script);
 }
 
 // ============================
@@ -241,14 +299,11 @@ window.addEventListener('scroll', debounce(() => {
 }, 10));
 
 backToTop.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 // ============================
-// Enhanced CTA Button Effects
+// CTA Ripple Effects
 // ============================
 
 document.querySelectorAll('.button-cta').forEach(btn => {
@@ -256,41 +311,113 @@ document.querySelectorAll('.button-cta').forEach(btn => {
     const ripple = document.createElement('span');
     ripple.className = 'ripple';
     this.appendChild(ripple);
-    
+
     const rect = this.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height);
     ripple.style.width = ripple.style.height = size + 'px';
     ripple.style.left = e.clientX - rect.left - size / 2 + 'px';
     ripple.style.top = e.clientY - rect.top - size / 2 + 'px';
-    
+
     setTimeout(() => ripple.remove(), 600);
   });
 });
 
 // ============================
-// Form Validation (if contact form is added)
+// Contact Form Validation
 // ============================
 
-// Placeholder for future contact form
-const initContactForm = () => {
-  // Add contact form functionality here
-  console.log('Contact form ready for implementation');
-};
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  const nameInput = document.getElementById('contactName');
+  const emailInput = document.getElementById('contactEmail');
+  const messageInput = document.getElementById('contactMessage');
+  const submitBtn = document.getElementById('contactSubmit');
 
-// ============================
-// Performance Monitoring
-// ============================
+  const showError = (input, message) => {
+    const errorEl = input.parentElement.querySelector('.form-error');
+    if (errorEl) {
+      errorEl.textContent = message;
+      input.style.borderColor = 'var(--Color-Accent)';
+    }
+  };
 
-if ('PerformanceObserver' in window) {
-  const perfObserver = new PerformanceObserver((list) => {
-    list.getEntries().forEach((entry) => {
-      if (entry.entryType === 'largest-contentful-paint') {
-        console.log('LCP:', entry.renderTime || entry.loadTime);
+  const clearError = (input) => {
+    const errorEl = input.parentElement.querySelector('.form-error');
+    if (errorEl) {
+      errorEl.textContent = '';
+      input.style.borderColor = '';
+    }
+  };
+
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  // Real-time validation
+  [nameInput, emailInput, messageInput].forEach(input => {
+    input.addEventListener('blur', () => {
+      if (!input.value.trim()) {
+        showError(input, `${input.previousElementSibling.textContent} is required`);
+      } else if (input.type === 'email' && !validateEmail(input.value)) {
+        showError(input, 'Please enter a valid email address');
+      } else {
+        clearError(input);
+      }
+    });
+
+    input.addEventListener('input', () => {
+      if (input.value.trim()) {
+        clearError(input);
       }
     });
   });
-  
-  perfObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let isValid = true;
+
+    if (!nameInput.value.trim()) {
+      showError(nameInput, 'Name is required');
+      isValid = false;
+    }
+    if (!emailInput.value.trim()) {
+      showError(emailInput, 'Email is required');
+      isValid = false;
+    } else if (!validateEmail(emailInput.value)) {
+      showError(emailInput, 'Please enter a valid email address');
+      isValid = false;
+    }
+    if (!messageInput.value.trim()) {
+      showError(messageInput, 'Message is required');
+      isValid = false;
+    }
+
+    if (isValid) {
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+
+      // Simulate form submission (replace with actual endpoint)
+      setTimeout(() => {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+        contactForm.reset();
+
+        // Success feedback
+        const successMsg = document.createElement('div');
+        successMsg.className = 'form-success';
+        successMsg.textContent = '✓ Message sent successfully!';
+        successMsg.style.cssText = `
+          color: #22c55e;
+          font-weight: 600;
+          text-align: center;
+          padding: 1rem;
+          animation: fadeInUp 0.4s ease;
+        `;
+        contactForm.appendChild(successMsg);
+        setTimeout(() => successMsg.remove(), 4000);
+      }, 1500);
+    }
+  });
 }
 
 // ============================
