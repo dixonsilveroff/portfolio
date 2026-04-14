@@ -86,7 +86,7 @@ export async function POST(request) {
     const safeEmail = escapeHtml(validated.email);
     const safeMessage = escapeHtml(validated.message).replace(/\n/g, "<br />");
 
-    await resend.emails.send({
+    const sendResult = await resend.emails.send({
       from: config.from,
       to: [config.to],
       replyTo: validated.email,
@@ -107,7 +107,19 @@ export async function POST(request) {
       `,
     });
 
-    return NextResponse.json({ success: true }, { status: 200 });
+    if (sendResult.error || !sendResult.data?.id) {
+      console.error("Contact email rejected by Resend", {
+        error: sendResult.error ?? "Missing message id",
+      });
+
+      return NextResponse.json({ error: "Unable to send message" }, { status: 502 });
+    }
+
+    console.info("Contact email accepted by Resend", {
+      messageId: sendResult.data.id,
+    });
+
+    return NextResponse.json({ success: true, messageId: sendResult.data.id }, { status: 200 });
   } catch (error) {
     console.error("Contact email send failed", {
       message: error instanceof Error ? error.message : "Unknown error",
