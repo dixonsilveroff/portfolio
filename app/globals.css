@@ -596,6 +596,9 @@ body.dark-mode .hero-socials img {
 }
 
 .hero-image {
+  width: min(70vw, 320px);
+  height: auto;
+  object-fit: contain;
   border-radius: 30px;
   box-shadow: var(--Shadow-Lg);
   transition: all var(--Transition-Slow) ease;
@@ -1577,9 +1580,8 @@ a:has(img):focus-visible {
   }
 
   img.hero-image {
-    width: 280px;
-    height: 280px;
-    object-fit: cover;
+    width: 210px;
+    height: auto;
   }
 
   img.hero-image2 {
@@ -1615,8 +1617,8 @@ a:has(img):focus-visible {
   }
 
   img.hero-image {
-    width: 320px;
-    height: 320px;
+    width: 240px;
+    height: auto;
   }
 
   .service-article-container {

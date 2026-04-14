@@ -32,7 +32,13 @@ export default function WorkSection({ projects }) {
               </div>
             </div>
             <a target="_blank" href={project.live} rel="noopener noreferrer" aria-label={`View ${project.name} project`}>
-              <Image src={project.image} alt={project.alt} width={1200} height={700} sizes="(min-width: 900px) 340px, 100vw" />
+              <Image
+                src={project.image}
+                alt={project.alt}
+                width={project.width}
+                height={project.height}
+                sizes="(min-width: 900px) 340px, 100vw"
+              />
             </a>
           </article>
         ))}

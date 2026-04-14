@@ -12,8 +12,8 @@ export default function AboutSection({ onScrollToId }) {
             <Image
               src="/images/victor2.webp"
               alt="Victor in a peace sign pose."
-              width={230}
-              height={300}
+              width={178}
+              height={279}
               className="hero-image2"
             />
           </figure>

@@ -63,6 +63,8 @@ export const projects = [
     live: "https://skillbridge-nine.vercel.app/",
     source: "https://github.com/dixonsilveroff",
     image: "/images/skillbridge.webp",
+    width: 250,
+    height: 224,
     alt: "SkillBridge dashboard landing page",
   },
   {
@@ -74,6 +76,8 @@ export const projects = [
     live: "https://hng-task-two-tawny.vercel.app/",
     source: "https://github.com/dixonsilveroff",
     image: "/images/slicksneaks.webp",
+    width: 250,
+    height: 191,
     alt: "SlickSneaks e-commerce landing page",
   },
   {
@@ -85,6 +89,8 @@ export const projects = [
     live: "https://ascenigeria.org",
     source: null,
     image: "/images/ascenigeria.webp",
+    width: 250,
+    height: 157,
     alt: "ASCE Nigeria homepage",
   },
 ];

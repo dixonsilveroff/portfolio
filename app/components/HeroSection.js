@@ -33,9 +33,9 @@ export default function HeroSection({ typedText, typingTargetText, socialLinks, 
           <Image
             src="/images/Victor.png"
             alt="Victor Nwafor smiling in monotone."
-            width={378}
-            height={378}
-            sizes="(min-width: 900px) 200px, 320px"
+            width={1639}
+            height={2186}
+            sizes="(min-width: 900px) 210px, 320px"
             className="hero-image"
             priority
           />
