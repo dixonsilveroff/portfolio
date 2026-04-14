@@ -15,6 +15,7 @@ export const metadata = {
     "Victor Nwafor",
     "web developer",
     "React",
+    "Nextjs",
     "Node.js",
     "JavaScript",
     "Nigeria",
