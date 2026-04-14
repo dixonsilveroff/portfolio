@@ -519,7 +519,7 @@ export default function Page() {
                 srcSet="/images/victor1_small.webp 164w, /images/victor1_medium.webp 378w"
                 sizes="(min-width: 900px) 200px, 320px"
                 className="hero-image"
-                width="160"
+                width="320"
               />
             </figure>
           </article>
