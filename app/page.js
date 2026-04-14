@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const navItems = [
@@ -507,19 +508,20 @@ export default function Page() {
               <div className="hero-socials">
                 {socialLinks.map((link) => (
                   <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
-                    <img src={link.icon} alt="" width="22" height="22" />
+                    <Image src={link.icon} alt="" width={22} height={22} />
                   </a>
                 ))}
               </div>
             </div>
             <figure>
-              <img
-                src="/images/victor1_small.webp"
+              <Image
+                src="/images/victor1_medium.webp"
                 alt="Victor Nwafor smiling in monotone."
-                srcSet="/images/victor1_small.webp 164w, /images/victor1_medium.webp 378w"
+                width={378}
+                height={378}
                 sizes="(min-width: 900px) 200px, 320px"
                 className="hero-image"
-                width="320"
+                priority
               />
             </figure>
           </article>
@@ -592,12 +594,12 @@ export default function Page() {
                 A frontend developer based in Abakaliki, Nigeria - building for the world.
               </h3>
               <figure>
-                <img
+                <Image
                   src="/images/victor2.webp"
                   alt="Victor in a peace sign pose."
-                  width="230"
+                  width={230}
+                  height={300}
                   className="hero-image2"
-                  loading="lazy"
                 />
               </figure>
             </div>
@@ -680,7 +682,13 @@ export default function Page() {
                   </div>
                 </div>
                 <a target="_blank" href={project.live} rel="noopener noreferrer" aria-label={`View ${project.name} project`}>
-                  <img src={project.image} alt={project.alt} loading="lazy" />
+                  <Image
+                    src={project.image}
+                    alt={project.alt}
+                    width={1200}
+                    height={700}
+                    sizes="(min-width: 900px) 340px, 100vw"
+                  />
                 </a>
               </article>
             ))}
@@ -807,16 +815,16 @@ export default function Page() {
             <h3>Connect</h3>
             <div className="footer-social_icons" role="navigation" aria-label="Social media links">
               <a target="_blank" href="https://www.instagram.com/the.real_victor/" rel="noopener noreferrer" aria-label="Instagram">
-                <img src="/images/instagram.svg" alt="" width="24" height="24" />
+                <Image src="/images/instagram.svg" alt="" width={24} height={24} />
               </a>
               <a target="_blank" href="https://www.linkedin.com/in/therealvict0r/" rel="noopener noreferrer" aria-label="LinkedIn">
-                <img src="/images/linkedin.svg" alt="" width="24" height="24" />
+                <Image src="/images/linkedin.svg" alt="" width={24} height={24} />
               </a>
               <a target="_blank" href="https://github.com/dixonsilveroff" rel="noopener noreferrer" aria-label="GitHub">
-                <img src="/images/github.svg" alt="" width="24" height="24" />
+                <Image src="/images/github.svg" alt="" width={24} height={24} />
               </a>
               <a target="_blank" href="https://x.com/dixonsilveroff" rel="noopener noreferrer" aria-label="Twitter / X">
-                <img src="/images/twitter.svg" alt="" width="24" height="24" />
+                <Image src="/images/twitter.svg" alt="" width={24} height={24} />
               </a>
             </div>
           </div>
