@@ -24,10 +24,11 @@ export default function Page() {
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [typedText, setTypedText] = useState("");
-  const [formValues, setFormValues] = useState({ name: "", email: "", message: "" });
+  const [formValues, setFormValues] = useState({ name: "", email: "", message: "", company: "" });
   const [formErrors, setFormErrors] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
+  const [formServerError, setFormServerError] = useState("");
 
   const typingTargetText = "Builder. Developer. System Thinker.";
 
@@ -275,8 +276,11 @@ export default function Page() {
     const { name, value } = event.target;
 
     setFormValues((prev) => ({ ...prev, [name]: value }));
+    if (formServerError) {
+      setFormServerError("");
+    }
 
-    if (value.trim()) {
+    if (value.trim() && name in formErrors) {
       setFormErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
@@ -286,7 +290,7 @@ export default function Page() {
     setFormErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const nextErrors = {
@@ -304,13 +308,29 @@ export default function Page() {
 
     setIsSubmitting(true);
     setFormSuccess(false);
+    setFormServerError("");
 
-    window.setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const response = await fetch("/api/send-contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValues),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
       setFormSuccess(true);
-      setFormValues({ name: "", email: "", message: "" });
+      setFormValues({ name: "", email: "", message: "", company: "" });
       window.setTimeout(() => setFormSuccess(false), 4000);
-    }, 1500);
+    } catch {
+      setFormServerError("Unable to send your message right now. Please try again in a moment.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -344,6 +364,7 @@ export default function Page() {
           formErrors={formErrors}
           isSubmitting={isSubmitting}
           formSuccess={formSuccess}
+          formServerError={formServerError}
           onInputChange={handleInputChange}
           onBlur={handleBlur}
           onSubmit={handleSubmit}
