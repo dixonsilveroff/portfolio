@@ -6,7 +6,7 @@ export default function Footer({ navItems, onScrollToId }) {
       <div className="footer-top">
         <div className="footer-brand">
           <a href="#intro" className="footer-logo" onClick={(event) => onScrollToId(event, "#intro")}>
-            {"<VickCodes>"}
+            {"VictorNwafor.me"}
           </a>
           <p className="footer-tagline">Crafting the web, one pixel at a time.</p>
         </div>

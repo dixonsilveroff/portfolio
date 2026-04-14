@@ -7,7 +7,10 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Victor Nwafor - Builder. Developer. System Thinker.",
   description:
     "Victor Nwafor - Builder. Developer. System Thinker. crafting fast, accessible, and beautiful web experiences with React, Node.js, and modern JavaScript.",
