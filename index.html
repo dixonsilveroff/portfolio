@@ -1,164 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <meta name="description" content="The personal page of Victor Nwafor, a frontend web developer.">
-      <link rel="stylesheet" href="src/style.css">
-      <link rel="shortcut icon" href="icon.png" type="image/x-icon">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-            rel="stylesheet">
-      <title>Victor the Dev</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Victor (Vick) - Builder, Developer, and System Thinker. Nigeria-based engineering student building software solutions for real coordination problems.">
+  <meta name="keywords" content="Victor Nwafor, Vick, Frontend Developer, React Developer, Web Developer Nigeria, ConSync, Software Engineer">
+  <meta name="author" content="Victor Nwafor">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Victor (Vick) - Builder. Developer. System Thinker.">
+  <meta property="og:description" content="Nigeria-based engineering student building software solutions for real coordination problems.">
+  <meta property="og:image" content="/icon.png">
+  <meta property="og:url" content="https://vick-portfolio.vercel.app">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Victor (Vick) - Builder. Developer. System Thinker.">
+  <meta name="twitter:description" content="Nigeria-based engineering student building software solutions for real coordination problems.">
+  <meta name="twitter:image" content="/icon.png">
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/icon.png" type="image/png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <title>Victor (Vick) - Builder. Developer. System Thinker.</title>
 </head>
-
 <body>
-      <header class="header">
-            <a href="./index.html" class="header-name"><strong>&#60;VickCodes&#62;</strong></a>
-            <nav class="header-nav">
-                  <button class="header-menu_open" onclick="toggleDropdown()"><img id="dropbtn"
-                              src="./src/images/ham-menu.svg" alt="hamburger menu button" width="25"></button>
-            </nav>
-      </header>
-      <ul class="header-dropdown" id="myDropdown">
-            <li><a href="#ContactMe">Contact Me</a></li>
-            <li><a href="#MyServices">My Services</a></li>
-            <li><a href="#AboutMe">About Me</a></li>
-            <li><a href="#MyWork">My Work</a></li>
-            <li><a href="./src/media/cv.pdf" class="header-cv_button" target="_blank">Download CV</a></li>
-      </ul>
-      <main class="main">
-            <section class="intro section" id="intro">
-                  <article class="hero-article">
-                        <div class="hero-text" role="article">
-                              <p class="intro-text">Hi, I'm</p>
-                              <p class="intro-text" style="font-size: 1.5rem;"><strong>Victor Nwafor</strong></p><br>
-                              <p class="intro-text" style="color: #D01414; font-size: 1.5rem;"><strong>FRONTEND
-                                          DEV</strong>
-                              </p>
-                        </div>
-                        <figure>
-                              <img  src="./src/images/victor1_small.webp" 
-                                    alt="Victor with a broad smile in monotone."
-                                    srcset="./src/images/victor1_small.webp 164w,
-                                            ./src/images/victor1_medium.webp 378w"
-                                    sizes="(min-width: 900px) 200px, 320px"
-                                    class="hero-image" width="160">
-                        </figure>
-                  </article>
-            </section>
-            <section class=" services section" id="MyServices">
-                  <h2>WHAT I DO</h2>
-                  <hr>
-                  <div class="service-article-container" role="article">
-                        <article class="services-article">
-                              <h3>Development</h3>
-                              <p>I code and develop websites from the ground up using JavaScript Technologies,
-                                    such as React
-                                    and Node.</p>
-                        </article>
-                        <article class="services-article">
-                              <h3>Web Building and CMS</h3>
-                              <p>I create websites using web builder and CMS technologies like Wix and WordPress.
-                              </p>
-                        </article>
-                        <article class="services-article">
-                              <h3>Auditing and Fixing</h3>
-                              <p>I analyze websites for Accessibility and Responsiveness down-scores and offer
-                                    fixes to them.
-                              </p>
-                        </article>
-                  </div>
-                  <a href="#MyWork" class="button-cta">see my work</a>
-            </section>
-            <section class="about-me section" id="AboutMe">
-                  <h2>WHO I AM</h2>
-                  <hr>
-                  <div class="about-me-wrapper" role="article">
-                        <div class="about-me-head" role="article">
-                              <h3>Web Developer based in Abakaliki, Nigeria.</h3>
-                              <figure>
-                                    <img src="./src/images/victor2.webp" alt="Victor in a peace sign pose." width="230"
-                                          class="hero-image2" loading="lazy">
-                              </figure>
-                        </div>
-                        <p class="about-me_text">So you&apos;re looking for that developer to build that <strong>highly
-                                    responsive</strong> and
-                              <strong class="bold">accessible</strong> site or app,
-                              then you're on the right page. <br><br>
-                              With my proven passion and comprehensive skill-set in the use of web technologies, I have
-                              been
-                              able to create the fastest, most responsive and highly accessible websites and web-apps to
-                              meet
-                              your business and/or personal needs. <br><br>
-                              Reach out to me, let's discuss bringing your project to life!
-                        </p>
-                  </div>
-                  <a href="#ContactMe" class="button-cta">contact me</a>
-            </section>
-            <section class="my-work section" id="MyWork">
-                  <h2>My Work</h2>
-                  <hr>
-                  <h3>A curation of my best projects!</h3><br><br>
-                  <div class="my-work-article-wrapper" role="article">
-                        <article class="my-work_articles">
-                              <p><strong>SkillBridge</strong><br>A holistic app that servers as a companion for the
-                                    aspiring
-                                    21st century Techpreneur.<br><br><strong>Technologies:</strong>&nbsp;ReactJS,
-                                    NodeJS.</p>
-                              <a target="_blank" href="https://skillbridge-nine.vercel.app/"><img
-                                          src="./src/images/skillbridge.webp"
-                                          alt="SkillBridge Landing page webshot" loading="lazy"></a>
-                        </article>
-                        <article class="my-work_articles">
-                              <p><strong>SlickSneaks</strong><br>An ecommerce app exclusively for the Sneakers footwear.
-                                    <br><br>
-                                    <strong>Technologies:</strong>&nbsp;ReactJS, ExpressJS, NodeJS.
-                              </p>
-                              <a target="_blank" href="https://hng-task-two-tawny.vercel.app/"><img
-                                          src="./src/images/slicksneaks.webp"
-                                          alt="SlickSneaks Landing Page webshot" loading="lazy"></a>
-                        </article>
-                        <article class="my-work_articles">
-                              <p><strong>ASCE Nigeria Website</strong><br>The Official homepage of ASCE Nigeria
-                                    International
-                                    Branch. <br><br><strong>Technologies:</strong>&nbsp;Wordpress, Elementor.</p>
-                              <a target="_blank" href="https://ascenigeria.org"><img src="./src/images/ascenigeria.webp"
-                                          alt="ASCE Nigeria homepage webshot" loading="lazy"></a>
-                        </article>
-                  </div>
-                  <a href="https://github.com/dixonsilveroff?tab=repositories" class="button-cta">more projects</a>
-            </section>
-      </main>
-      <footer class="footer" id="ContactMe">
-            <a href="mailto:dixonsilverofficial@gmail.com">dixonsilverofficial@gmail.com</a>
-            <div class="footer-social_icons">
-                  <a target="_blank" href="https://www.instagram.com/the.real_victor/"><img
-                              src="./src/images/instagram.svg" alt="Instagram Icon"></a>
-                  <a target="_blank" href="https://www.linkedin.com/in/therealvict0r/"><img
-                              src="./src/images/linkedin.svg" alt="Linkedin Icon"></a>
-                  <a target="_blank" href="https://github.com/dixonsilveroff"><img src="./src/images/github.svg"
-                              alt="Github Icon"></a>
-                  <a target="_blank" href="https://x.com/dixonsilveroff"><img src="./src/images/twitter.svg"
-                              alt="Twitter Icon"></a>
-            </div>
-      </footer>
-
-      <!-- To-Do 
-            - Enable scroll-driven animation for link navigation
-            - add progress bar
-            - Perform Accessibility and Performance audits.
-            - make navbar sticky when scrolling.
-            - Animate the open and close navbar button.
-      -->
-
-      <script defer src="./src/script.js"></script>
-      <noscript>
-            Sorry...JavaScript is needed to go ahead.
-      </noscript>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
-
 </html>
