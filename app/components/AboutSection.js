@@ -6,18 +6,18 @@ export default function AboutSection({ onScrollToId }) {
       <h2>Who I Am</h2>
       <hr />
       <div className="about-me-wrapper">
-        <div className="about-me-head">
+        {/* <div className="about-me-head">
           <h3>A frontend developer based in Abakaliki, Nigeria - building for the world.</h3>
           <figure>
             <Image
               src="/images/victor2.webp"
               alt="Victor in a peace sign pose."
-              width={178}
-              height={279}
+              width={230}
+              height={300}
               className="hero-image2"
             />
           </figure>
-        </div>
+        </div> */}
         <div className="about-me-content">
           <p className="about-me_text">
             I fell in love with web development the moment I realized code could turn an idea into
