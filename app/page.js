@@ -1,116 +1,17 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const navItems = [
-  { href: "#MyServices", label: "Services" },
-  { href: "#MySkills", label: "Skills" },
-  { href: "#AboutMe", label: "About" },
-  { href: "#MyWork", label: "Work" },
-  { href: "#ContactMe", label: "Contact" },
-];
-
-const serviceItems = [
-  {
-    icon: "⚡",
-    title: "Frontend Development",
-    description:
-      "I build interactive, performant interfaces from the ground up using React, Next.js, and vanilla JavaScript.",
-    details: [
-      "Single-page apps & progressive web apps",
-      "Component-driven architecture",
-      "API integration & state management",
-    ],
-  },
-  {
-    icon: "🎨",
-    title: "UI/UX & Web Design",
-    description:
-      "I translate designs into responsive, pixel-perfect code - or design from scratch using modern web design principles.",
-    details: [
-      "Figma to code implementation",
-      "WordPress & CMS customization",
-      "Responsive layouts across all devices",
-    ],
-  },
-  {
-    icon: "🔍",
-    title: "Auditing & Optimization",
-    description:
-      "I analyze existing websites for accessibility, performance, and SEO issues - then fix them.",
-    details: [
-      "WCAG compliance audits",
-      "Core Web Vitals optimization",
-      "Cross-browser & device testing",
-    ],
-  },
-  {
-    icon: "🚀",
-    title: "Performance & SEO",
-    description:
-      "I ensure your site loads fast, ranks well, and delivers a smooth experience for every visitor.",
-    details: [
-      "Lighthouse & PageSpeed audits",
-      "Lazy loading & code splitting",
-      "Structured data & meta optimization",
-    ],
-  },
-];
-
-const projects = [
-  {
-    role: "Lead Developer",
-    name: "SkillBridge",
-    description:
-      "A companion platform for aspiring tech entrepreneurs. Built a responsive dashboard with curated learning paths, progress tracking, and community features - serving hundreds of users.",
-    tech: ["React", "Node.js", "REST API"],
-    live: "https://skillbridge-nine.vercel.app/",
-    source: "https://github.com/dixonsilveroff",
-    image: "/images/skillbridge.webp",
-    alt: "SkillBridge dashboard landing page",
-  },
-  {
-    role: "Full-Stack Developer",
-    name: "SlickSneaks",
-    description:
-      "An e-commerce storefront built exclusively for sneaker enthusiasts. Features product filtering, a cart system with persistent state, and a checkout flow powered by Express on the backend.",
-    tech: ["React", "Express", "Node.js"],
-    live: "https://hng-task-two-tawny.vercel.app/",
-    source: "https://github.com/dixonsilveroff",
-    image: "/images/slicksneaks.webp",
-    alt: "SlickSneaks e-commerce landing page",
-  },
-  {
-    role: "Web Designer",
-    name: "ASCE Nigeria",
-    description:
-      "The official website for ASCE Nigeria International Branch. Designed and built a professional multi-page site with event listings, member resources, and an admin content management system.",
-    tech: ["WordPress", "Elementor", "Custom CSS"],
-    live: "https://ascenigeria.org",
-    source: null,
-    image: "/images/ascenigeria.webp",
-    alt: "ASCE Nigeria homepage",
-  },
-];
-
-const socialLinks = [
-  {
-    href: "https://github.com/dixonsilveroff",
-    label: "GitHub",
-    icon: "/images/github.svg",
-  },
-  {
-    href: "https://www.linkedin.com/in/therealvict0r/",
-    label: "LinkedIn",
-    icon: "/images/linkedin.svg",
-  },
-  {
-    href: "https://x.com/dixonsilveroff",
-    label: "Twitter / X",
-    icon: "/images/twitter.svg",
-  },
-];
+import AboutSection from "./components/AboutSection";
+import BackToTopButton from "./components/BackToTopButton";
+import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import HeroSection from "./components/HeroSection";
+import ServicesSection from "./components/ServicesSection";
+import SkillsSection from "./components/SkillsSection";
+import WorkSection from "./components/WorkSection";
+import { navItems, projects, serviceItems, socialLinks } from "./data/portfolioData";
 
 export default function Page() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -414,434 +315,41 @@ export default function Page() {
     <>
       <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
 
-      <header
-        className={`header ${isSticky ? "sticky" : ""}`}
-        style={{ transform: isHeaderHidden ? "translateY(-100%)" : "translateY(0)" }}
-        role="banner"
-      >
-        <a href="#intro" className="header-name" aria-label="Victor Nwafor - Home" onClick={(event) => scrollToId(event, "#intro")}>
-          <strong>{"Victor Nwafor"}</strong>
-        </a>
-
-        <nav className="header-nav" role="navigation" aria-label="Main navigation">
-          <button className="dark-mode-toggle" type="button" aria-label="Toggle dark mode" onClick={toggleTheme}>
-            <span className="sun-icon">☀️</span>
-            <span className="moon-icon">🌙</span>
-          </button>
-
-          <ul
-            className={`header-dropdown ${isMenuOpen ? "open" : ""}`}
-            id="myDropdown"
-            role="menu"
-          >
-            {navItems.map((item) => (
-              <li key={item.href} role="none">
-                <a
-                  href={item.href}
-                  role="menuitem"
-                  className={activeSection === item.href.slice(1) ? "active-link" : ""}
-                  onClick={(event) => scrollToId(event, item.href)}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-            {/* <li role="none">
-              <a
-                href="/media/cv.pdf"
-                className="header-cv_button"
-                role="menuitem"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Download CV
-              </a>
-            </li> */}
-          </ul>
-
-          <button
-            className={`header-menu_open ${isMenuOpen ? "active" : ""}`}
-            type="button"
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-            aria-expanded={isMenuOpen}
-            aria-controls="myDropdown"
-            aria-label="Toggle navigation menu"
-          >
-            <span className="hamburger">
-              <span className="line" />
-              <span className="line" />
-              <span className="line" />
-            </span>
-          </button>
-        </nav>
-      </header>
+      <Header
+        isSticky={isSticky}
+        isHeaderHidden={isHeaderHidden}
+        isMenuOpen={isMenuOpen}
+        activeSection={activeSection}
+        navItems={navItems}
+        onScrollToId={scrollToId}
+        onToggleTheme={toggleTheme}
+        onToggleMenu={() => setIsMenuOpen((prev) => !prev)}
+      />
 
       <main className="main">
-        <section className="intro section" id="intro">
-          <article className="hero-article">
-            <div className="hero-text">
-              <p className="intro-text greeting">Hi, I&apos;m</p>
-              <h1 className="intro-text name">Victor Nwafor</h1>
-              <p className="intro-text typing-text" data-text={typingTargetText}>
-                <strong>{typedText}</strong>
-              </p>
-              <p className="tagline">
-                I turn ideas into fast, accessible, and pixel-perfect web experiences that users
-                love.
-              </p>
-              <div className="hero-cta-group">
-                <a
-                  href="#MyWork"
-                  className="button-cta button-cta--primary"
-                  onClick={(event) => scrollToId(event, "#MyWork")}
-                >
-                  View My Work
-                </a>
-                <a
-                  href="#ContactMe"
-                  className="button-cta button-cta--outline"
-                  onClick={(event) => scrollToId(event, "#ContactMe")}
-                >
-                  Get In Touch
-                </a>
-              </div>
-              <div className="hero-socials">
-                {socialLinks.map((link) => (
-                  <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
-                    <Image src={link.icon} alt="" width={22} height={22} />
-                  </a>
-                ))}
-              </div>
-            </div>
-            <figure>
-              <Image
-                src="/images/victor1_medium.webp"
-                alt="Victor Nwafor smiling in monotone."
-                width={378}
-                height={378}
-                sizes="(min-width: 900px) 200px, 320px"
-                className="hero-image"
-                priority
-              />
-            </figure>
-          </article>
-        </section>
-
-        <section className="services section" id="MyServices">
-          <h2>What I Do</h2>
-          <hr />
-          <div className="service-article-container" role="list">
-            {serviceItems.map((service) => (
-              <article className="services-article stagger-item" role="listitem" key={service.title}>
-                <div className="service-icon">{service.icon}</div>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                <ul className="service-details">
-                  {service.details.map((detail) => (
-                    <li key={detail}>{detail}</li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="skills section" id="MySkills">
-          <h2>My Tech Stack</h2>
-          <hr />
-          <div className="skills-grid">
-            <div className="skill-category glass-card stagger-item">
-              <h3>Frontend</h3>
-              <div className="skill-badges">
-                <span className="skill-badge" data-level="95">HTML5</span>
-                <span className="skill-badge" data-level="90">CSS3 / Sass</span>
-                <span className="skill-badge" data-level="90">JavaScript</span>
-                <span className="skill-badge" data-level="85">TypeScript</span>
-                <span className="skill-badge" data-level="85">React</span>
-                <span className="skill-badge" data-level="80">Next.js</span>
-              </div>
-            </div>
-            <div className="skill-category glass-card stagger-item">
-              <h3>Backend</h3>
-              <div className="skill-badges">
-                <span className="skill-badge" data-level="80">Node.js</span>
-                <span className="skill-badge" data-level="75">Express</span>
-                <span className="skill-badge" data-level="70">PostgreSQL</span>
-                <span className="skill-badge" data-level="70">MongoDB</span>
-                <span className="skill-badge" data-level="65">Prisma</span>
-              </div>
-            </div>
-            <div className="skill-category glass-card stagger-item">
-              <h3>Tools & Workflow</h3>
-              <div className="skill-badges">
-                <span className="skill-badge" data-level="90">Git / GitHub</span>
-                <span className="skill-badge" data-level="85">VS Code</span>
-                <span className="skill-badge" data-level="80">Figma</span>
-                <span className="skill-badge" data-level="75">Vercel</span>
-                <span className="skill-badge" data-level="70">Docker</span>
-                <span className="skill-badge" data-level="80">npm / Webpack</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="about-me section" id="AboutMe">
-          <h2>Who I Am</h2>
-          <hr />
-          <div className="about-me-wrapper">
-            <div className="about-me-head">
-              <h3>
-                A frontend developer based in Abakaliki, Nigeria - building for the world.
-              </h3>
-              <figure>
-                <Image
-                  src="/images/victor2.webp"
-                  alt="Victor in a peace sign pose."
-                  width={230}
-                  height={300}
-                  className="hero-image2"
-                />
-              </figure>
-            </div>
-            <div className="about-me-content">
-              <p className="about-me_text">
-                I fell in love with web development the moment I realized code could turn an idea
-                into something people actually use. Since then, I&apos;ve been obsessed with crafting
-                interfaces that are <strong>blindingly fast</strong>,
-                <strong> accessible to everyone</strong>, and genuinely enjoyable to interact with.
-              </p>
-              <p className="about-me_text">
-                My approach is straightforward: understand the problem, design a clean solution,
-                and write code that&apos;s as easy to maintain as it is to use. Whether it&apos;s a startup
-                landing page or a full-scale web application, I bring the same attention to detail
-                and care.
-              </p>
-              <div className="about-stats">
-                <div className="stat-item glass-card">
-                  <span className="stat-number" data-count="15">0</span>
-                  <span className="stat-suffix">+</span>
-                  <span className="stat-label">Projects Delivered</span>
-                </div>
-                <div className="stat-item glass-card">
-                  <span className="stat-number" data-count="10">0</span>
-                  <span className="stat-suffix">+</span>
-                  <span className="stat-label">Happy Clients</span>
-                </div>
-                <div className="stat-item glass-card">
-                  <span className="stat-number" data-count="3">0</span>
-                  <span className="stat-suffix">+</span>
-                  <span className="stat-label">Years Experience</span>
-                </div>
-              </div>
-              <a href="#ContactMe" className="button-cta" onClick={(event) => scrollToId(event, "#ContactMe")}>
-                Let&apos;s work together
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section className="my-work section" id="MyWork">
-          <h2>My Work</h2>
-          <hr />
-          <p className="section-subtitle">
-            Selected projects I&apos;ve built - each solving a real problem.
-          </p>
-          <div className="my-work-article-wrapper" role="list">
-            {projects.map((project) => (
-              <article className="my-work_articles project-card" role="listitem" key={project.name}>
-                <div className="project-overlay">
-                  <span className="project-role">{project.role}</span>
-                  <h3>{project.name}</h3>
-                  <p>{project.description}</p>
-                  <div className="tech-stack">
-                    {project.tech.map((tech) => (
-                      <span className="tech-badge" key={tech}>
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="project-links">
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-link project-link--live"
-                    >
-                      {project.name === "ASCE Nigeria" ? "Live Site ->" : "Live Demo ->"}
-                    </a>
-                    {project.source ? (
-                      <a
-                        href={project.source}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link project-link--source"
-                      >
-                        Source Code
-                      </a>
-                    ) : null}
-                  </div>
-                </div>
-                <a target="_blank" href={project.live} rel="noopener noreferrer" aria-label={`View ${project.name} project`}>
-                  <Image
-                    src={project.image}
-                    alt={project.alt}
-                    width={1200}
-                    height={700}
-                    sizes="(min-width: 900px) 340px, 100vw"
-                  />
-                </a>
-              </article>
-            ))}
-          </div>
-          <a
-            href="https://github.com/dixonsilveroff?tab=repositories"
-            className="button-cta"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            More on GitHub -&gt;
-          </a>
-        </section>
-
-        <section className="contact section" id="ContactMe">
-          <h2>Get In Touch</h2>
-          <hr />
-          <p className="section-subtitle">Have a project in mind? Let&apos;s talk about it.</p>
-          <div className="contact-wrapper">
-            <form className="contact-form glass-card" id="contactForm" onSubmit={handleSubmit} noValidate>
-              <div className="form-group">
-                <label htmlFor="contactName">Name</label>
-                <input
-                  type="text"
-                  id="contactName"
-                  name="name"
-                  placeholder="Your name"
-                  required
-                  autoComplete="name"
-                  value={formValues.name}
-                  onChange={handleInputChange}
-                  onBlur={handleBlur}
-                />
-                <span className="form-error" aria-live="polite">{formErrors.name}</span>
-              </div>
-              <div className="form-group">
-                <label htmlFor="contactEmail">Email</label>
-                <input
-                  type="email"
-                  id="contactEmail"
-                  name="email"
-                  placeholder="you@example.com"
-                  required
-                  autoComplete="email"
-                  value={formValues.email}
-                  onChange={handleInputChange}
-                  onBlur={handleBlur}
-                />
-                <span className="form-error" aria-live="polite">{formErrors.email}</span>
-              </div>
-              <div className="form-group">
-                <label htmlFor="contactMessage">Message</label>
-                <textarea
-                  id="contactMessage"
-                  name="message"
-                  rows="5"
-                  placeholder="Tell me about your project..."
-                  required
-                  value={formValues.message}
-                  onChange={handleInputChange}
-                  onBlur={handleBlur}
-                />
-                <span className="form-error" aria-live="polite">{formErrors.message}</span>
-              </div>
-              <button
-                type="submit"
-                className={`button-cta button-cta--primary ${isSubmitting ? "loading" : ""}`}
-                id="contactSubmit"
-                disabled={isSubmitting}
-              >
-                <span className="btn-text">Send Message</span>
-                <span className="btn-loading" aria-hidden="true">Sending...</span>
-              </button>
-              {formSuccess ? <div className="form-success">✓ Message sent successfully!</div> : null}
-            </form>
-            <div className="contact-info">
-              <div className="contact-info-item">
-                <span className="contact-info-icon">📧</span>
-                <div>
-                  <h3>Email</h3>
-                  <a href="mailto:dixonsilverofficial@gmail.com">dixonsilverofficial@gmail.com</a>
-                </div>
-              </div>
-              <div className="contact-info-item">
-                <span className="contact-info-icon">📍</span>
-                <div>
-                  <h3>Location</h3>
-                  <p>Abakaliki, Nigeria</p>
-                </div>
-              </div>
-              <div className="contact-info-item">
-                <span className="contact-info-icon">🟢</span>
-                <div>
-                  <h3>Availability</h3>
-                  <p>Open to freelance &amp; full-time roles</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <HeroSection
+          typedText={typedText}
+          typingTargetText={typingTargetText}
+          socialLinks={socialLinks}
+          onScrollToId={scrollToId}
+        />
+        <ServicesSection serviceItems={serviceItems} />
+        <SkillsSection />
+        <AboutSection onScrollToId={scrollToId} />
+        <WorkSection projects={projects} />
+        <ContactSection
+          formValues={formValues}
+          formErrors={formErrors}
+          isSubmitting={isSubmitting}
+          formSuccess={formSuccess}
+          onInputChange={handleInputChange}
+          onBlur={handleBlur}
+          onSubmit={handleSubmit}
+        />
       </main>
 
-      <footer className="footer" role="contentinfo">
-        <div className="footer-top">
-          <div className="footer-brand">
-            <a href="#intro" className="footer-logo" onClick={(event) => scrollToId(event, "#intro")}>
-              {"<VickCodes>"}
-            </a>
-            <p className="footer-tagline">Crafting the web, one pixel at a time.</p>
-          </div>
-          <nav className="footer-links" aria-label="Footer navigation">
-            <h3>Quick Links</h3>
-            <ul>
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a href={item.href} onClick={(event) => scrollToId(event, item.href)}>
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <div className="footer-connect">
-            <h3>Connect</h3>
-            <div className="footer-social_icons" role="navigation" aria-label="Social media links">
-              <a target="_blank" href="https://www.instagram.com/the.real_victor/" rel="noopener noreferrer" aria-label="Instagram">
-                <Image src="/images/instagram.svg" alt="" width={24} height={24} />
-              </a>
-              <a target="_blank" href="https://www.linkedin.com/in/therealvict0r/" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Image src="/images/linkedin.svg" alt="" width={24} height={24} />
-              </a>
-              <a target="_blank" href="https://github.com/dixonsilveroff" rel="noopener noreferrer" aria-label="GitHub">
-                <Image src="/images/github.svg" alt="" width={24} height={24} />
-              </a>
-              <a target="_blank" href="https://x.com/dixonsilveroff" rel="noopener noreferrer" aria-label="Twitter / X">
-                <Image src="/images/twitter.svg" alt="" width={24} height={24} />
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <p className="footer-copyright">&copy; 2026 Victor Nwafor. All rights reserved.</p>
-        </div>
-      </footer>
-
-      <button
-        className={`back-to-top ${showBackToTop ? "visible" : ""}`}
-        aria-label="Back to top"
-        type="button"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      >
-        ↑
-      </button>
+      <Footer navItems={navItems} onScrollToId={scrollToId} />
+      <BackToTopButton showBackToTop={showBackToTop} />
 
       <noscript>
         <p>JavaScript is required for the full experience.</p>
