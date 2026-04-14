@@ -419,7 +419,7 @@ export default function Page() {
         role="banner"
       >
         <a href="#intro" className="header-name" aria-label="Victor Nwafor - Home" onClick={(event) => scrollToId(event, "#intro")}>
-          <strong>{"<VickCodes>"}</strong>
+          <strong>{"Victor Nwafor"}</strong>
         </a>
 
         <nav className="header-nav" role="navigation" aria-label="Main navigation">
@@ -445,7 +445,7 @@ export default function Page() {
                 </a>
               </li>
             ))}
-            <li role="none">
+            {/* <li role="none">
               <a
                 href="/media/cv.pdf"
                 className="header-cv_button"
@@ -455,7 +455,7 @@ export default function Page() {
               >
                 Download CV
               </a>
-            </li>
+            </li> */}
           </ul>
 
           <button
