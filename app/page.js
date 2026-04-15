@@ -29,6 +29,7 @@ export default function Page() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
   const [formServerError, setFormServerError] = useState("");
+  const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT?.trim() ?? "";
 
   const typingTargetText = "Builder. Developer. System Thinker.";
 
@@ -311,12 +312,29 @@ export default function Page() {
     setFormServerError("");
 
     try {
-      const response = await fetch("/api/send-contact", {
+      if (!formspreeEndpoint) {
+        throw new Error("missing-formspree-endpoint");
+      }
+
+      if (formValues.company.trim()) {
+        setFormSuccess(true);
+        setFormValues({ name: "", email: "", message: "", company: "" });
+        window.setTimeout(() => setFormSuccess(false), 4000);
+        return;
+      }
+
+      const response = await fetch(formspreeEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify(formValues),
+        body: JSON.stringify({
+          name: formValues.name.trim(),
+          email: formValues.email.trim(),
+          message: formValues.message.trim(),
+          _subject: "New message from portfolio contact form",
+        }),
       });
 
       if (!response.ok) {
@@ -326,8 +344,12 @@ export default function Page() {
       setFormSuccess(true);
       setFormValues({ name: "", email: "", message: "", company: "" });
       window.setTimeout(() => setFormSuccess(false), 4000);
-    } catch {
-      setFormServerError("Unable to send your message right now. Please try again in a moment.");
+    } catch (error) {
+      if (error instanceof Error && error.message === "missing-formspree-endpoint") {
+        setFormServerError("Contact form is not configured yet. Please add the Formspree endpoint.");
+      } else {
+        setFormServerError("Unable to send your message right now. Please try again in a moment.");
+      }
     } finally {
       setIsSubmitting(false);
     }
