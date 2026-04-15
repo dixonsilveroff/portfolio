@@ -64,7 +64,7 @@ export const projects = [
     "alt": "Africa Waste Observatory platform interface"
   },
   {
-    "role": "Frontend Developer",
+    "role": "Fullstack Developer",
     "name": "ConSync",
     "description":
       "Built and refined frontend components for a construction financial management/escrow platform, focusing on clarity, usability, and structured data presentation for clients, contractors and project stakeholders.",
