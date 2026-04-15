@@ -8,106 +8,117 @@ export const navItems = [
 
 export const serviceItems = [
   {
-    icon: "⚡",
-    title: "Frontend Development",
-    description:
-      "I build interactive, performant interfaces from the ground up using React, Next.js, and vanilla JavaScript.",
-    details: [
-      "Single-page apps & progressive web apps",
-      "Component-driven architecture",
-      "API integration & state management",
-    ],
+    "icon": "🚀",
+    "title": "Website Design & Development",
+    "description": "I design and build fast, modern, and conversion-focused websites tailored to business goals.",
+    "details": [
+      "Responsive websites for all devices",
+      "Landing pages optimized for conversions",
+      "Clean UI/UX with modern design principles"
+    ]
   },
   {
-    icon: "🎨",
-    title: "UI/UX & Web Design",
-    description:
-      "I translate designs into responsive, pixel-perfect code - or design from scratch using modern web design principles.",
-    details: [
-      "Figma to code implementation",
-      "WordPress & CMS customization",
-      "Responsive layouts across all devices",
-    ],
+    "icon": "🛠️",
+    "title": "Website Redesign & Optimization",
+    "description": "I improve outdated or underperforming websites to boost speed, usability, and conversions.",
+    "details": [
+      "UI/UX improvements",
+      "Performance optimization",
+      "SEO structure fixes"
+    ]
   },
   {
-    icon: "🔍",
-    title: "Auditing & Optimization",
-    description:
-      "I analyze existing websites for accessibility, performance, and SEO issues - then fix them.",
-    details: [
-      "WCAG compliance audits",
-      "Core Web Vitals optimization",
-      "Cross-browser & device testing",
-    ],
+    "icon": "🏫",
+    "title": "Website Solutions for Schools & Organizations",
+    "description": "I build structured, easy-to-manage websites for schools, churches, and student organizations.",
+    "details": [
+      "Event and announcement systems",
+      "Registration and form integration",
+      "Content management setup"
+    ]
   },
   {
-    icon: "🚀",
-    title: "Performance & SEO",
-    description:
-      "I ensure your site loads fast, ranks well, and delivers a smooth experience for every visitor.",
-    details: [
-      "Lighthouse & PageSpeed audits",
-      "Lazy loading & code splitting",
-      "Structured data & meta optimization",
-    ],
+    "icon": "🔧",
+    "title": "CMS Integration",
+    "description": "I integrate content management systems so you can easily update your website without coding.",
+    "details": [
+      "Sanity or other headless CMS setup",
+      "Custom admin dashboards",
+      "Blogs and article management systems/sites",
+      "Content editing workflows"
+    ]
   },
 ];
 
 export const projects = [
   {
-    role: "Lead Developer",
-    name: "SkillBridge",
-    description:
-      "A companion platform for aspiring tech entrepreneurs. Built a responsive dashboard with curated learning paths, progress tracking, and community features - serving hundreds of users.",
-    tech: ["React", "Node.js", "REST API"],
-    live: "https://skillbridge-nine.vercel.app/",
-    source: "https://github.com/dixonsilveroff",
-    image: "/images/skillbridge.webp",
-    width: 250,
-    height: 224,
-    alt: "SkillBridge dashboard landing page",
+    "role": "Lead Developer & Project Manager",
+    "name": "Africa Waste Observatory",
+    "description":
+      "Contributed to the development of a data-driven platform focused on waste management insights across Africa, with emphasis on structured information delivery and accessibility.",
+    "tech": ["React", "JavaScript", "CSS"],
+    "live": "https://africawasteobservatory.org",
+    "image": "/images/awo.jpg",
+    "width": 250,
+    "height": 224,
+    "alt": "Africa Waste Observatory platform interface"
   },
   {
-    role: "Full-Stack Developer",
-    name: "SlickSneaks",
-    description:
-      "An e-commerce storefront built exclusively for sneaker enthusiasts. Features product filtering, a cart system with persistent state, and a checkout flow powered by Express on the backend.",
-    tech: ["React", "Express", "Node.js"],
-    live: "https://hng-task-two-tawny.vercel.app/",
-    source: "https://github.com/dixonsilveroff",
-    image: "/images/slicksneaks.webp",
-    width: 250,
-    height: 191,
-    alt: "SlickSneaks e-commerce landing page",
+    "role": "Frontend Developer",
+    "name": "ConSync",
+    "description":
+      "Built and refined frontend components for a construction financial management/escrow platform, focusing on clarity, usability, and structured data presentation for clients, contractors and project stakeholders.",
+    "tech": ["React", "Next.js", "JavaScript"],
+    "live": "https://consync.app",
+    "image": "/images/consync.jpg",
+    "width": 250,
+    "height": 224,
+    "alt": "ConSync construction platform interface"
   },
   {
-    role: "Web Designer",
-    name: "ASCE Nigeria",
-    description:
-      "The official website for ASCE Nigeria International Branch. Designed and built a professional multi-page site with event listings, member resources, and an admin content management system.",
-    tech: ["WordPress", "Elementor", "Custom CSS"],
-    live: "https://ascenigeria.org",
-    source: null,
-    image: "/images/ascenigeria.webp",
-    width: 250,
-    height: 157,
-    alt: "ASCE Nigeria homepage",
+    "role": "Web Developer",
+    "name": "RCCG Hosanna House Website Redesign",
+    "description":
+      "Led the redesign of an existing church website to improve structure, clarity, and user experience, addressing discoverability and outdated design issues.",
+    "tech": ["Sanity CMS", "NextJS", "JavaScript"],
+    "live": "https://rccghosannahouse.org",
+    "image": "/images/rccghh.jpg",
+    "width": 250,
+    "height": 224,
+    "alt": "RCCG HH redesigned website"
+  },
+  {
+    "role": "Fullstack Developer",
+    "name": "Barrow Project",
+    "description":
+      "Developed responsive frontend components for a digital BEME platform, focusing on clean UI implementation and performance across devices.",
+    "tech": ["React", "NextJS", "JavaScript", "ExpressJS"],
+    // "live": "",
+    "image": "/images/barrow.jpg",
+    "width": 250,
+    "height": 224,
+    "alt": "Barrow platform interface"
   },
 ];
 
 export const socialLinks = [
+  {
+    href: "https://instagram.com/victornwafor.me",
+    label: "Instagram",
+    icon: "/images/instagram.svg",
+  },
   {
     href: "https://github.com/dixonsilveroff",
     label: "GitHub",
     icon: "/images/github.svg",
   },
   {
-    href: "https://www.linkedin.com/in/therealvict0r/",
+    href: "https://www.linkedin.com/in/victornwaforme",
     label: "LinkedIn",
     icon: "/images/linkedin.svg",
   },
   {
-    href: "https://x.com/dixonsilveroff",
+    href: "https://x.com/victornwaforme",
     label: "Twitter / X",
     icon: "/images/twitter.svg",
   },
