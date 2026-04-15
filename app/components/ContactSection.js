@@ -3,6 +3,7 @@ export default function ContactSection({
   formErrors,
   isSubmitting,
   formSuccess,
+  formServerError,
   onInputChange,
   onBlur,
   onSubmit,
@@ -14,6 +15,18 @@ export default function ContactSection({
       <p className="section-subtitle">Have a project in mind? Let&apos;s talk about it.</p>
       <div className="contact-wrapper">
         <form className="contact-form glass-card" id="contactForm" onSubmit={onSubmit} noValidate>
+          <div style={{ position: "absolute", left: "-9999px" }} aria-hidden="true">
+            <label htmlFor="contactWebsite">Website</label>
+            <input
+              type="text"
+              id="contactWebsite"
+              name="website"
+              tabIndex="-1"
+              autoComplete="new-password"
+              value={formValues.website}
+              onChange={onInputChange}
+            />
+          </div>
           <div className="form-group">
             <label htmlFor="contactName">Name</label>
             <input
@@ -67,6 +80,9 @@ export default function ContactSection({
             <span className="btn-text">Send Message</span>
             <span className="btn-loading" aria-hidden="true">Sending...</span>
           </button>
+          {formServerError ? (
+            <div className="form-error" role="status" aria-live="polite">{formServerError}</div>
+          ) : null}
           {formSuccess ? <div className="form-success">✓ Message sent successfully!</div> : null}
         </form>
         <div className="contact-info">

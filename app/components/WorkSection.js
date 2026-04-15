@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 
 export default function WorkSection({ projects }) {
   return (
@@ -22,13 +23,9 @@ export default function WorkSection({ projects }) {
               </div>
               <div className="project-links">
                 <a href={project.live} target="_blank" rel="noopener noreferrer" className="project-link project-link--live">
-                  {project.name === "ASCE Nigeria" ? "Live Site ->" : "Live Demo ->"}
+                  Live Site
+                  <ExternalLink className="external-icon" size={16} strokeWidth={2} aria-hidden="true" />
                 </a>
-                {project.source ? (
-                  <a href={project.source} target="_blank" rel="noopener noreferrer" className="project-link project-link--source">
-                    Source Code
-                  </a>
-                ) : null}
               </div>
             </div>
             <a target="_blank" href={project.live} rel="noopener noreferrer" aria-label={`View ${project.name} project`}>
@@ -38,13 +35,15 @@ export default function WorkSection({ projects }) {
                 width={project.width}
                 height={project.height}
                 sizes="(min-width: 900px) 340px, 100vw"
+                loading="eager"
               />
             </a>
           </article>
         ))}
       </div>
       <a href="https://github.com/dixonsilveroff?tab=repositories" className="button-cta" target="_blank" rel="noopener noreferrer">
-        More on GitHub -&gt;
+        More on GitHub &nbsp;
+        <ExternalLink className="external-icon" size={16} strokeWidth={2} aria-hidden="true" />
       </a>
     </section>
   );

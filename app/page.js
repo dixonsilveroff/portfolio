@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { useSubmit } from "@formspree/react";
 
 import AboutSection from "./components/AboutSection";
 import BackToTopButton from "./components/BackToTopButton";
@@ -24,10 +25,14 @@ export default function Page() {
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [typedText, setTypedText] = useState("");
-  const [formValues, setFormValues] = useState({ name: "", email: "", message: "" });
+  const [formValues, setFormValues] = useState({ name: "", email: "", message: "", website: "" });
   const [formErrors, setFormErrors] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
+  const [formServerError, setFormServerError] = useState("");
+  const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT?.trim() ?? "";
+  const formspreeFormKey = formspreeEndpoint.split("/").filter(Boolean).at(-1) ?? "";
+  const submitToFormspree = useSubmit(formspreeFormKey || "invalid-form-key");
 
   const typingTargetText = "Builder. Developer. System Thinker.";
 
@@ -275,8 +280,11 @@ export default function Page() {
     const { name, value } = event.target;
 
     setFormValues((prev) => ({ ...prev, [name]: value }));
+    if (formServerError) {
+      setFormServerError("");
+    }
 
-    if (value.trim()) {
+    if (value.trim() && name in formErrors) {
       setFormErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
@@ -286,7 +294,7 @@ export default function Page() {
     setFormErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const nextErrors = {
@@ -304,13 +312,57 @@ export default function Page() {
 
     setIsSubmitting(true);
     setFormSuccess(false);
+    setFormServerError("");
 
-    window.setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      if (!formspreeEndpoint) {
+        throw new Error("missing-formspree-endpoint");
+      }
+
+      if (!formspreeFormKey) {
+        throw new Error("invalid-formspree-endpoint");
+      }
+
+      if (formValues.website.trim()) {
+        return;
+      }
+
+      const result = await submitToFormspree({
+        name: formValues.name.trim(),
+        email: formValues.email.trim(),
+        message: formValues.message.trim(),
+        _subject: "New message from portfolio contact form",
+      });
+
+      if (result.kind === "error") {
+        const nextFieldErrors = { name: "", email: "", message: "" };
+        result.getAllFieldErrors().forEach(([field, errors]) => {
+          if (field in nextFieldErrors && errors.length > 0) {
+            nextFieldErrors[field] = errors[0].message;
+          }
+        });
+
+        setFormErrors((prev) => ({ ...prev, ...nextFieldErrors }));
+
+        const providerMessage = result.getFormErrors().map((entry) => entry.message).join(" ").trim();
+        setFormServerError(providerMessage || "Unable to send your message right now. Please try again in a moment.");
+        return;
+      }
+
       setFormSuccess(true);
-      setFormValues({ name: "", email: "", message: "" });
+      setFormValues({ name: "", email: "", message: "", website: "" });
       window.setTimeout(() => setFormSuccess(false), 4000);
-    }, 1500);
+    } catch (error) {
+      if (error instanceof Error && error.message === "missing-formspree-endpoint") {
+        setFormServerError("Contact form is not configured yet. Please add the Formspree endpoint.");
+      } else if (error instanceof Error && error.message === "invalid-formspree-endpoint") {
+        setFormServerError("Formspree endpoint is invalid. Use a URL like https://formspree.io/f/yourFormId.");
+      } else {
+        setFormServerError("Unable to send your message right now. Please try again in a moment.");
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -344,6 +396,7 @@ export default function Page() {
           formErrors={formErrors}
           isSubmitting={isSubmitting}
           formSuccess={formSuccess}
+          formServerError={formServerError}
           onInputChange={handleInputChange}
           onBlur={handleBlur}
           onSubmit={handleSubmit}
