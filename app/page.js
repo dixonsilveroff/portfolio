@@ -25,7 +25,7 @@ export default function Page() {
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [typedText, setTypedText] = useState("");
-  const [formValues, setFormValues] = useState({ name: "", email: "", message: "", company: "" });
+  const [formValues, setFormValues] = useState({ name: "", email: "", message: "", website: "" });
   const [formErrors, setFormErrors] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
@@ -323,10 +323,7 @@ export default function Page() {
         throw new Error("invalid-formspree-endpoint");
       }
 
-      if (formValues.company.trim()) {
-        setFormSuccess(true);
-        setFormValues({ name: "", email: "", message: "", company: "" });
-        window.setTimeout(() => setFormSuccess(false), 4000);
+      if (formValues.website.trim()) {
         return;
       }
 
@@ -353,7 +350,7 @@ export default function Page() {
       }
 
       setFormSuccess(true);
-      setFormValues({ name: "", email: "", message: "", company: "" });
+      setFormValues({ name: "", email: "", message: "", website: "" });
       window.setTimeout(() => setFormSuccess(false), 4000);
     } catch (error) {
       if (error instanceof Error && error.message === "missing-formspree-endpoint") {

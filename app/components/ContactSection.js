@@ -16,14 +16,14 @@ export default function ContactSection({
       <div className="contact-wrapper">
         <form className="contact-form glass-card" id="contactForm" onSubmit={onSubmit} noValidate>
           <div style={{ position: "absolute", left: "-9999px" }} aria-hidden="true">
-            <label htmlFor="contactCompany">Company</label>
+            <label htmlFor="contactWebsite">Website</label>
             <input
               type="text"
-              id="contactCompany"
-              name="company"
+              id="contactWebsite"
+              name="website"
               tabIndex="-1"
-              autoComplete="off"
-              value={formValues.company}
+              autoComplete="new-password"
+              value={formValues.website}
               onChange={onInputChange}
             />
           </div>
