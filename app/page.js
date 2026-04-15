@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { useSubmit } from "@formspree/react";
 
 import AboutSection from "./components/AboutSection";
 import BackToTopButton from "./components/BackToTopButton";
@@ -30,6 +31,8 @@ export default function Page() {
   const [formSuccess, setFormSuccess] = useState(false);
   const [formServerError, setFormServerError] = useState("");
   const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT?.trim() ?? "";
+  const formspreeFormKey = formspreeEndpoint.split("/").filter(Boolean).at(-1) ?? "";
+  const submitToFormspree = useSubmit(formspreeFormKey || "invalid-form-key");
 
   const typingTargetText = "Builder. Developer. System Thinker.";
 
@@ -316,6 +319,10 @@ export default function Page() {
         throw new Error("missing-formspree-endpoint");
       }
 
+      if (!formspreeFormKey) {
+        throw new Error("invalid-formspree-endpoint");
+      }
+
       if (formValues.company.trim()) {
         setFormSuccess(true);
         setFormValues({ name: "", email: "", message: "", company: "" });
@@ -323,22 +330,26 @@ export default function Page() {
         return;
       }
 
-      const response = await fetch(formspreeEndpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: formValues.name.trim(),
-          email: formValues.email.trim(),
-          message: formValues.message.trim(),
-          _subject: "New message from portfolio contact form",
-        }),
+      const result = await submitToFormspree({
+        name: formValues.name.trim(),
+        email: formValues.email.trim(),
+        message: formValues.message.trim(),
+        _subject: "New message from portfolio contact form",
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to send message");
+      if (result.kind === "error") {
+        const nextFieldErrors = { name: "", email: "", message: "" };
+        result.getAllFieldErrors().forEach(([field, errors]) => {
+          if (field in nextFieldErrors && errors.length > 0) {
+            nextFieldErrors[field] = errors[0].message;
+          }
+        });
+
+        setFormErrors((prev) => ({ ...prev, ...nextFieldErrors }));
+
+        const providerMessage = result.getFormErrors().map((entry) => entry.message).join(" ").trim();
+        setFormServerError(providerMessage || "Unable to send your message right now. Please try again in a moment.");
+        return;
       }
 
       setFormSuccess(true);
@@ -347,6 +358,8 @@ export default function Page() {
     } catch (error) {
       if (error instanceof Error && error.message === "missing-formspree-endpoint") {
         setFormServerError("Contact form is not configured yet. Please add the Formspree endpoint.");
+      } else if (error instanceof Error && error.message === "invalid-formspree-endpoint") {
+        setFormServerError("Formspree endpoint is invalid. Use a URL like https://formspree.io/f/yourFormId.");
       } else {
         setFormServerError("Unable to send your message right now. Please try again in a moment.");
       }
