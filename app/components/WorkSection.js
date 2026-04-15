@@ -35,6 +35,7 @@ export default function WorkSection({ projects }) {
                 width={project.width}
                 height={project.height}
                 sizes="(min-width: 900px) 340px, 100vw"
+                loading="eager"
               />
             </a>
           </article>
