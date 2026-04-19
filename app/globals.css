@@ -21,6 +21,8 @@
   --Color-Accent-Glow: rgba(208, 20, 20, 0.25);
   --Color-Surface: rgba(255, 255, 255, 0.6);
   --Color-Surface-Border: rgba(255, 255, 255, 0.3);
+  --Color-Section-Base: rgba(245, 245, 247, 0.82);
+  --Color-Section-Alt: rgba(232, 232, 237, 0.78);
   --Shadow-Sm: 0 2px 8px rgba(0, 0, 0, 0.08);
   --Shadow-Md: 0 4px 20px rgba(0, 0, 0, 0.12);
   --Shadow-Lg: 0 8px 40px rgba(0, 0, 0, 0.16);
@@ -42,6 +44,8 @@ body.dark-mode {
   --Color-Accent-Glow: rgba(255, 68, 68, 0.3);
   --Color-Surface: rgba(40, 40, 40, 0.6);
   --Color-Surface-Border: rgba(255, 255, 255, 0.08);
+  --Color-Section-Base: rgba(13, 13, 13, 0.82);
+  --Color-Section-Alt: rgba(26, 26, 26, 0.78);
   --Shadow-Sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --Shadow-Md: 0 4px 20px rgba(0, 0, 0, 0.4);
   --Shadow-Lg: 0 8px 40px rgba(0, 0, 0, 0.5);
@@ -486,7 +490,7 @@ body.dark-mode .dark-mode-toggle .moon-icon {
    ============================ */
 
 .intro {
-  background: var(--Color-1);
+  background: var(--Color-Section-Base);
   min-height: calc(100vh - 4rem);
   position: relative;
   overflow: hidden;
@@ -663,7 +667,7 @@ body.dark-mode .hero-socials img {
    ============================ */
 
 .services {
-  background: var(--Color-2);
+  background: var(--Color-Section-Alt);
 }
 
 .service-article-container {
@@ -746,7 +750,7 @@ body.dark-mode .hero-socials img {
    ============================ */
 
 .skills {
-  background: var(--Color-1);
+  background: var(--Color-Section-Base);
 }
 
 .skills-grid {
@@ -819,7 +823,7 @@ body.dark-mode .hero-socials img {
    ============================ */
 
 .about-me {
-  background: var(--Color-2);
+  background: var(--Color-Section-Alt);
 }
 
 .about-me-wrapper {
@@ -920,7 +924,7 @@ body.dark-mode .hero-socials img {
    ============================ */
 
 .my-work {
-  background: var(--Color-1);
+  background: var(--Color-Section-Base);
 }
 
 .my-work-article-wrapper {
@@ -1139,7 +1143,7 @@ body.dark-mode .hero-socials img {
    ============================ */
 
 .contact {
-  background: var(--Color-2);
+  background: var(--Color-Section-Alt);
 }
 
 .contact-wrapper {
