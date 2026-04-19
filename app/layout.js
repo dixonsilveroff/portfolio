@@ -1,4 +1,5 @@
 import { Plus_Jakarta_Sans } from "next/font/google";
+import BackgroundParticles from "./components/BackgroundParticles";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -10,7 +11,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export const metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL("https://victornwafor.me"),
   title: "Victor Nwafor - Builder. Developer. System Thinker.",
   description:
     "Victor Nwafor - Builder. Developer. System Thinker. crafting fast, accessible, and beautiful web experiences with React, Node.js, and modern JavaScript.",
@@ -25,6 +26,13 @@ export const metadata = {
     "portfolio",
   ],
   authors: [{ name: "Victor Nwafor" }],
+  alternates: {
+    canonical: "/",
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+  },
   icons: {
     icon: "/icon.png",
   },
@@ -46,8 +54,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={plusJakartaSans.variable} suppressHydrationWarning>
-      <body>{children}</body>
+    <html lang="en" className={plusJakartaSans.variable}>
+      <body>
+        <BackgroundParticles />
+        <div className="site-shell">{children}</div>
+      </body>
     </html>
   );
 }
