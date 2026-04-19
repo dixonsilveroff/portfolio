@@ -45,9 +45,10 @@ function ParticleCloud({ count, color, speed, size }) {
         color={color}
         size={size}
         sizeAttenuation
-        opacity={0.45}
+        opacity={1.0}
         transparent
         depthWrite={false}
+        toneMapped={false}
         blending={THREE.AdditiveBlending}
       />
     </points>
@@ -132,7 +133,7 @@ export default function BackgroundParticles() {
   }
 
   const shouldAnimate = isDocumentVisible && !isReducedMotion;
-  const particleColor = isDarkMode ? "#ff6666" : "#d01414";
+  const particleColor = isDarkMode ? "#ff8a8a" : "#ff2f2f";
 
   return (
     <div className="site-background" aria-hidden="true">
