@@ -22,9 +22,5 @@
   },
   "devDependencies": {
     "baseline-browser-mapping": "^2.10.20"
-    "react-dom": "19.2.0"
-  },
-  "devDependencies": {
-    "baseline-browser-mapping": "^2.10.18"
   }
 }
