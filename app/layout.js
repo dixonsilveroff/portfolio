@@ -1,4 +1,5 @@
 import { Plus_Jakarta_Sans } from "next/font/google";
+import BackgroundParticles from "./components/BackgroundParticles";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -52,7 +53,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={plusJakartaSans.variable}>
-      <body>{children}</body>
+      <body>
+        <BackgroundParticles />
+        <div className="site-shell">{children}</div>
+      </body>
     </html>
   );
 }

@@ -59,7 +59,49 @@ body {
   color: var(--Color-3);
   line-height: 1.6;
   overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
   transition: background var(--Transition-Med) ease, color var(--Transition-Med) ease;
+}
+
+.site-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.site-background canvas {
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0.46;
+}
+
+body.dark-mode .site-background canvas {
+  opacity: 0.54;
+}
+
+.site-background-fallback {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 25%, rgba(208, 20, 20, 0.09), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(208, 20, 20, 0.07), transparent 48%);
+}
+
+.site-shell {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-background canvas {
+    opacity: 0.24;
+  }
 }
 
 body.loaded {
