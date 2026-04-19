@@ -20,7 +20,7 @@ export default function Header({
         aria-label="Victor Nwafor - Home"
         onClick={(event) => onScrollToId(event, "#intro")}
       >
-        <strong>{"Victor Nwafor"}</strong>
+        <strong>{"VictorNwafor.me"}</strong>
       </a>
 
       <nav className="header-nav" role="navigation" aria-label="Main navigation">

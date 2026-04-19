@@ -1049,6 +1049,14 @@ body.dark-mode .hero-socials img {
   transform: translateY(-2px);
 }
 
+.external-icon {
+  width: 0.95em;
+  height: 0.95em;
+  margin-left: 0.3rem;
+  vertical-align: text-bottom;
+  flex-shrink: 0;
+}
+
 .my-work_articles img {
   display: block;
   width: 100%;

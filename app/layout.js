@@ -8,6 +8,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata = {
   metadataBase: new URL("https://victornwafor.me"),
   title: "Victor Nwafor - Builder. Developer. System Thinker.",
