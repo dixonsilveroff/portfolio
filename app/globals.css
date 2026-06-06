@@ -425,7 +425,7 @@ body.dark-mode .dark-mode-toggle .moon-icon {
   left: 0;
   right: 0;
   box-shadow: var(--Shadow-Lg);
-  animation: slideDown 0.3s ease;
+  animation: slideInLeft 0.3s ease;
   border-bottom: 1px solid var(--Color-Surface-Border);
 }
 
@@ -435,6 +435,11 @@ body.dark-mode .dark-mode-toggle .moon-icon {
 
 @keyframes slideInRight {
   from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-100%); }
   to { opacity: 1; transform: translateX(0); }
 }
 
