@@ -29,6 +29,8 @@ export default function Header({
           <span className="moon-icon">🌙</span>
         </button>
 
+        <div className={`nav-overlay ${isMenuOpen ? "open" : ""}`} onClick={onToggleMenu}></div>
+
         <ul className={`header-dropdown ${isMenuOpen ? "open" : ""}`} id="myDropdown" role="menu">
           {navItems.map((item) => (
             <li key={item.href} role="none">
