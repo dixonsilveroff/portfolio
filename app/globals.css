@@ -436,6 +436,7 @@ body.dark-mode .dark-mode-toggle .moon-icon {
   z-index: 999;
   flex-direction: column;
   background: var(--Color-1);
+  opacity: 0.95;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -445,7 +446,6 @@ body.dark-mode .dark-mode-toggle .moon-icon {
   transform: translateX(-100%);
   transition: transform 0.3s ease;
   padding-top: 5rem;
-  opacity: 1 !important;
 }
 
 .header-dropdown.open {
