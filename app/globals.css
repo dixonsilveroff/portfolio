@@ -413,24 +413,43 @@ body.dark-mode .dark-mode-toggle .moon-icon {
    Dropdown Menu
    ============================ */
 
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 998;
+}
+
+.nav-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
 .header-dropdown {
-  display: none;
+  display: flex;
   z-index: 999;
   flex-direction: column;
-  background: var(--Color-Surface);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: var(--Color-1);
+  opacity: 0.95;
   position: fixed;
-  top: 4rem;
+  top: 0;
+  bottom: 0;
   left: 0;
-  right: 0;
+  width: 250px;
   box-shadow: var(--Shadow-Lg);
-  animation: slideDown 0.3s ease;
-  border-bottom: 1px solid var(--Color-Surface-Border);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  padding-top: 5rem;
 }
 
 .header-dropdown.open {
-  display: flex;
+  transform: translateX(0);
 }
 
 @keyframes slideInRight {
@@ -1532,6 +1551,10 @@ a:has(img):focus-visible {
     padding: 0.875rem 3rem;
   }
 
+  .nav-overlay {
+    display: none;
+  }
+
   .header-dropdown {
     position: static;
     display: flex !important;
@@ -1542,6 +1565,9 @@ a:has(img):focus-visible {
     backdrop-filter: none;
     box-shadow: none;
     border: none;
+    transform: translateX(0);
+    padding-top: 0;
+    width: auto;
   }
 
   .header-dropdown li {
