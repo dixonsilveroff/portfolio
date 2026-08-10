@@ -71,6 +71,10 @@ export default function Page() {
 
   useEffect(() => {
     let lastScrollTop = 0;
+    const sectionEls = Array.from(document.querySelectorAll(".section[id]")).map((section) => ({
+      id: section.getAttribute("id"),
+      el: section,
+    }));
 
     const onScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -89,14 +93,12 @@ export default function Page() {
       }
       lastScrollTop = scrollTop;
 
-      const sectionEls = document.querySelectorAll(".section[id]");
-      sectionEls.forEach((section) => {
-        const sectionTop = section.offsetTop - 120;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute("id");
+      sectionEls.forEach(({ id, el }) => {
+        const sectionTop = el.offsetTop - 120;
+        const sectionHeight = el.offsetHeight;
 
-        if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight && sectionId) {
-          setActiveSection(sectionId);
+        if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight && id) {
+          setActiveSection(id);
         }
       });
     };
